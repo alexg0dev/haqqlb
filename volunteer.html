@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer - HAQQ حركة حَقّ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'navy': {
+                            50: '#f0f5ff',
+                            100: '#e0eaff',
+                            200: '#c7d9ff',
+                            300: '#a3bdff',
+                            400: '#7a97ff',
+                            500: '#5b70fc',
+                            600: '#3f4cf1',
+                            700: '#2f3ad1',
+                            800: '#0f1b4d',
+                            900: '#0a1033',
+                            950: '#050821',
+                        },
+                        'gold': {
+                            50: '#fefbe8',
+                            100: '#fff8c2',
+                            200: '#ffee89',
+                            300: '#ffde44',
+                            400: '#ffcf1b',
+                            500: '#d4a017',
+                            600: '#b78210',
+                            700: '#95650c',
+                            800: '#7a5210',
+                            900: '#644212',
+                            950: '#3a2409',
+                        },
+                        'lebanon': {
+                            red: '#DC2626',
+                            green: '#059669',
+                            white: '#FFFFFF'
+                        }
+                    },
+                    fontFamily: {
+                        'display': ['Cormorant Garamond', 'serif'],
+                        'sans': ['Montserrat', 'sans-serif'],
+                        'arabic': ['Amiri', 'serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'gradient': 'gradient 15s ease infinite',
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                        'scale-in': 'scaleIn 0.8s ease-out forwards',
+                        'shimmer': 'shimmer 2s linear infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'bounce-slow': 'bounce 3s infinite',
+                        'shimmer-gold': 'shimmerGold 3s infinite linear',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        gradient: {
+                            '0%, 100%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(60px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        scaleIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.9)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' }
+                        },
+                        shimmer: {
+                            '0%': { transform: 'translateX(-100%)' },
+                            '100%': { transform: 'translateX(100%)' }
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 5px rgba(212, 160, 23, 0.5)' },
+                            '100%': { boxShadow: '0 0 20px rgba(212, 160, 23, 0.8)' }
+                        },
+                        shimmerGold: {
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #050821;
+            color: #fff;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #050821 0%, #0f1b4d 50%, #050821 100%);
+            background-size: 200% 200%;
+            animation: gradient 15s ease infinite;
+        }
+        .glass-dark {
+            background: rgba(5, 8, 33, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 160, 23, 0.3);
+        }
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #d4a017, #b78210);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hover-transform {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hover-transform:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(5, 8, 33, 0.3);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+        .stagger-5 { transition-delay: 0.5s; }
+        .stagger-6 { transition-delay: 0.6s; }
+        
+        .arabic-text {
+            font-family: 'Amiri', serif;
+            direction: rtl;
+        }
+        .btn-gold {
+            background: #d4a017;
+            border: none;
+            color: #050821;
+            font-weight: 700;
+            padding: 1.25rem 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 50px;
+        }
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 160, 23, 0.4);
+            background: #b78210;
+        }
+        .btn-gold::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s;
+        }
+        .btn-gold:hover::before {
+            left: 100%;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #d4a017;
+            color: #d4a017;
+            font-weight: 700;
+            padding: 1.25rem 2.5rem;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 50px;
+        }
+        .btn-outline:hover {
+            background: rgba(212, 160, 23, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 160, 23, 0.3);
+        }
+        .luxury-card {
+            background: #0a1033;
+            border: 1px solid #d4a017;
+            box-shadow: 0 20px 40px rgba(5, 8, 33, 0.4);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border-radius: 24px;
+        }
+        .luxury-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, #d4a017, #b78210);
+        }
+        .luxury-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(5, 8, 33, 0.5);
+        }
+        .gold-border-rounded {
+            border: 2px solid #d4a017;
+            border-radius: 24px;
+        }
+        .gold-text-shadow {
+            text-shadow: 0 0 10px rgba(212, 160, 23, 0.5);
+        }
+        .logo-shadow {
+            filter: drop-shadow(0 0 15px rgba(212, 160, 23, 0.6));
+        }
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            background: rgba(212, 160, 23, 0.1);
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #d4a017;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        .nav-link:hover::after {
+            width: 80%;
+        }
+        .section-padding {
+            padding: 10rem 0;
+        }
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 5rem 0;
+            }
+        }
+
+        /* FAQ Section Styles */
+        .faq-item summary {
+            cursor: pointer;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid rgba(212, 160, 23, 0.2);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #d4a017;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+        .faq-item summary:hover {
+            background-color: rgba(212, 160, 23, 0.05);
+        }
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+        .faq-item summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: #d4a017;
+            transition: transform 0.3s ease;
+        }
+        .faq-item[open] summary::after {
+            content: '-';
+            transform: rotate(180deg);
+        }
+        .faq-item .faq-content {
+            padding: 1.5rem 2rem;
+            background-color: #0a1033;
+            color: #e0eaff;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* NEW styles for Why Volunteer section */
+        .why-volunteer-block {
+            background: linear-gradient(145deg, #0a1033, #0f1b4d);
+            border-radius: 24px;
+            box-shadow: 0 15px 30px rgba(5, 8, 33, 0.4);
+            transition: all 0.5s ease-in-out;
+            position: relative;
+            overflow: hidden;
+            padding: 2.5rem; /* Increased padding */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .why-volunteer-block::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 24px;
+            padding: 3px; /* Controls the thickness of the border */
+            background: linear-gradient(45deg, #d4a017, #b78210, #d4a017);
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            opacity: 0; /* Start hidden */
+            transition: opacity 0.5s ease-in-out;
+        }
+        .why-volunteer-block:hover::before {
+            opacity: 1; /* Show on hover */
+        }
+        .why-volunteer-block .icon-xl {
+            background: linear-gradient(135deg, #d4a017, #b78210);
+            box-shadow: 0 8px 20px rgba(212, 160, 23, 0.5);
+            transition: transform 0.4s ease;
+            width: 100px; /* Larger icon circle */
+            height: 100px; /* Larger icon circle */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+        }
+        .why-volunteer-block:hover .icon-xl {
+            transform: scale(1.1);
+        }
+        .why-volunteer-block h3 {
+            font-size: 2.5rem; /* Larger title */
+            margin-bottom: 1rem;
+        }
+        .why-volunteer-block p {
+            font-size: 1.2rem; /* Larger text */
+        }
+
+        /* NEW styles for Core Volunteer Roles section - REVISED */
+        .core-role-card-revised {
+            background: #0a1033;
+            border-radius: 24px;
+            box-shadow: 0 15px 30px rgba(5, 8, 33, 0.4);
+            transition: all 0.5s ease-in-out;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(212, 160, 23, 0.3); /* Subtle initial border */
+            padding: 2.5rem; /* Increased padding for content */
+            display: flex;
+            flex-direction: column;
+        }
+        .core-role-card-revised::before {
+            content: '';
+            position: absolute;
+            inset: -2px; /* Slightly larger than the card to create a glow */
+            border-radius: 26px; /* Match card border-radius + padding */
+            background: linear-gradient(45deg, #d4a017, #b78210, #d4a017);
+            filter: blur(10px); /* Soft glow effect */
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .core-role-card-revised:hover::before {
+            opacity: 0.6; /* Show glow on hover */
+        }
+        .core-role-card-revised .icon-title-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem; /* Space below icon and title */
+        }
+        .core-role-card-revised .icon-md {
+            background: linear-gradient(135deg, #d4a017, #b78210);
+            box-shadow: 0 5px 15px rgba(212, 160, 23, 0.4);
+            width: 64px; /* Medium icon size */
+            height: 64px; /* Medium icon size */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-right: 1.5rem; /* Space between icon and title */
+            flex-shrink: 0; /* Prevent icon from shrinking */
+        }
+        .core-role-card-revised h3 {
+            font-size: 2.25rem; /* Slightly larger title */
+            font-weight: 700;
+            color: #d4a017;
+            line-height: 1.2; /* Adjust line height for title */
+        }
+        .core-role-card-revised .description {
+            color: #e0eaff; /* Lighter text for description */
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        .core-role-card-revised .key-details-list {
+            background: rgba(212, 160, 23, 0.1); /* Subtle gold background for list */
+            border-radius: 12px;
+            padding: 1.25rem;
+            border: 1px solid rgba(212, 160, 23, 0.3);
+        }
+        .core-role-card-revised .key-details-list p {
+            font-weight: 600;
+            color: #ffcf1b; /* Brighter gold for "Key Details" heading */
+            margin-bottom: 0.75rem;
+        }
+        .core-role-card-revised .key-details-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .core-role-card-revised .key-details-list li {
+            display: flex;
+            align-items: center;
+            color: #c7d9ff; /* Lighter navy for list items */
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        .core-role-card-revised .key-details-list li:last-child {
+            margin-bottom: 0;
+        }
+        .core-role-card-revised .key-details-list .list-item-icon-revised {
+            color: #ffde44; /* Gold for list icons */
+            margin-right: 0.75rem;
+            font-size: 1rem;
+        }
+
+        /* NEW styles for Contact Us for Volunteering section */
+        .volunteer-contact-section {
+            background: linear-gradient(135deg, #0f1b4d, #050821); /* Dark gradient background */
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(5, 8, 33, 0.5);
+            padding: 4rem;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid rgba(212, 160, 23, 0.3); /* Subtle gold border */
+        }
+        .volunteer-contact-section .icon-large-whatsapp {
+            color: #25D366; /* WhatsApp green */
+            font-size: 5rem; /* Large icon */
+            margin-bottom: 2rem;
+            filter: drop-shadow(0 0 15px rgba(37, 211, 102, 0.5)); /* Green glow */
+        }
+        .volunteer-contact-section h2 {
+            font-size: 3.5rem; /* Large heading */
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            color: #d4a017; /* Gold text */
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 10px rgba(212, 160, 23, 0.4);
+        }
+        .volunteer-contact-section p {
+            font-size: 1.3rem; /* Larger paragraph text */
+            color: #e0eaff; /* Lighter navy text */
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+        .volunteer-contact-section .btn-whatsapp-lg {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            border: none;
+            color: white;
+            font-weight: 700;
+            padding: 1.5rem 3rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
+            font-size: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .volunteer-contact-section .btn-whatsapp-lg:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(37, 211, 102, 0.5);
+        }
+        .volunteer-contact-section .btn-whatsapp-lg i {
+            margin-right: 1rem;
+            font-size: 1.8rem;
+        }
+        .volunteer-contact-section .info-text {
+            color: #c7d9ff;
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-navy-950 text-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-500" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center py-6">
+                <div class="flex items-center space-x-6">
+                    <a href="index.html" class="logo-container">
+                        <img src="logo7aq.png" alt="HAQQ Logo" class="w-20 h-20 object-contain logo-shadow hover-scale" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0iI2Q0YTAxNyIvPgo8dGV4dCB4PSI0MCIgeT0iNDUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiMwNTA4MjEiIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbm5hbnQtYmFzZWxpbmU9ImNlbnRyYWwiPjJLM1pndm1CPC90ZXh0Pgo8L3N2Zz4K'">
+                    </a>
+                    <div class="ml-4">
+                        <h1 class="text-3xl font-display font-bold text-white gold-text-shadow">HAQQ</h1>
+                        <p class="text-gold-500 arabic-text font-semibold text-lg">حركة حَقّ</p>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-white hover:text-gold-500 font-semibold transition-all duration-300 uppercase tracking-wide text-sm">Home</a>
+                    <a href="about.html" class="nav-link text-white hover:text-gold-500 font-semibold transition-all duration-300 uppercase tracking-wide text-sm">About</a>
+                    <a href="help.html" class="nav-link text-white hover:text-gold-500 font-semibold transition-all duration-300 uppercase tracking-wide text-sm">How We Help</a>
+                    <a href="impact.html" class="nav-link text-white hover:text-gold-500 font-semibold transition-all duration-300 uppercase tracking-wide text-sm">Impact</a>
+                    <a href="volunteer.html" class="nav-link text-gold-500 hover:text-gold-500 font-semibold transition-all duration-300 uppercase tracking-wide text-sm">Volunteer</a>
+                    <a href="contact.html" class="btn-gold">
+                        Get Help
+                    </a>
+                </div>
+                
+                <button class="lg:hidden p-4 bg-navy-950 text-gold-500 gold-border-rounded" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="lg:hidden hidden glass-dark" id="mobile-menu">
+            <div class="px-6 py-10 space-y-8">
+                <a href="index.html" class="block py-4 text-white hover:text-gold-300 font-semibold text-xl transition-colors">Home</a>
+                <a href="about.html" class="block py-4 text-white hover:text-gold-300 font-semibold text-xl transition-colors">About</a>
+                <a href="how-we-help.html" class="block py-4 text-white hover:text-gold-300 font-semibold text-xl transition-colors">How We Help</a>
+                <a href="impact.html" class="block py-4 text-white hover:text-gold-300 font-semibold text-xl transition-colors">Impact</a>
+                <a href="volunteer.html" class="block py-4 text-gold-300 font-semibold text-xl transition-colors">Volunteer</a>
+                <a href="contact.html" class="block py-4 text-gold-300 font-bold text-xl">Get Help</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 bg-gradient-to-br from-navy-950 to-navy-800 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background-image: url('/placeholder.svg?height=800&width=1200'); background-size: cover; background-position: center;"></div>
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+            <div class="text-center reveal">
+                <div class="inline-flex items-center px-6 py-3 rounded-full bg-gold-950/30 text-gold-400 font-semibold mb-8 gold-border-rounded font-sans animate-float">
+                    <i class="fas fa-hands-helping mr-3"></i>
+                    Make a Direct Impact
+                </div>
+                <h1 class="text-5xl md:text-7xl font-display font-black text-white mb-8 leading-tight gold-text-shadow">
+                    Volunteer for <span class="text-gradient-gold">Real Change</span>
+                </h1>
+                <p class="text-2xl text-gold-200 max-w-4xl mx-auto leading-relaxed font-sans">
+                    Join us on the ground, delivering aid, providing direct support, and being the hands that bring hope to Lebanese families.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Volunteer Section - IMPROVED DESIGN -->
+    <section class="section-padding bg-navy-900">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-4xl md:text-6xl font-display font-black text-white mb-8 gold-text-shadow">
+                    Why Volunteer with <span class="text-gradient-gold">HAQQ</span>?
+                </h2>
+                <p class="text-xl text-gold-200 max-w-3xl mx-auto font-sans">
+                    Your dedication directly translates into tangible support for families facing hardship. Be part of a movement that delivers real, immediate relief.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-12">
+                <div class="why-volunteer-block p-8 reveal stagger-1">
+                    <div class="icon-xl rounded-full flex items-center justify-center mx-auto mb-6 float-animation">
+                        <i class="fas fa-hand-holding-heart text-white text-4xl"></i>
+                    </div>
+                    <h3 class="text-3xl font-display font-bold text-gold-400 mb-4">Direct Impact</h3>
+                    <p class="text-gray-300 leading-relaxed font-sans text-lg">
+                        See the immediate difference your efforts make as you directly assist families in need, providing essential aid and comfort.
+                    </p>
+                </div>
+                <div class="why-volunteer-block p-8 reveal stagger-2" style="animation-delay: 0.2s;">
+                    <div class="icon-xl rounded-full flex items-center justify-center mx-auto mb-6 float-animation">
+                        <i class="fas fa-users text-white text-4xl"></i>
+                    </div>
+                    <h3 class="text-3xl font-display font-bold text-gold-400 mb-4">Community & Connection</h3>
+                    <p class="text-gray-300 leading-relaxed font-sans text-lg">
+                        Join a passionate community of like-minded individuals, building strong bonds and working together for a shared cause.
+                    </p>
+                </div>
+                <div class="why-volunteer-block p-8 reveal stagger-3" style="animation-delay: 0.4s;">
+                    <div class="icon-xl rounded-full flex items-center justify-center mx-auto mb-6 float-animation">
+                        <i class="fas fa-seedling text-white text-4xl"></i>
+                    </div>
+                    <h3 class="text-3xl font-display font-bold text-gold-400 mb-4">Personal Growth</h3>
+                    <p class="text-gray-300 leading-relaxed font-sans text-lg">
+                        Develop new skills, gain unique experiences, and grow personally and professionally through meaningful service.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Opportunities - FURTHER REVISED DESIGN -->
+    <section class="section-padding bg-navy-950">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-4xl md:text-6xl font-display font-black text-white mb-8 gold-text-shadow">
+                    Our Core <span class="text-gradient-gold">Volunteer Roles</span>
+                </h2>
+                <p class="text-xl text-gold-200 max-w-3xl mx-auto font-sans">
+                    These are the hands-on roles where your direct involvement makes the biggest difference.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="core-role-card-revised p-8 reveal stagger-1 hover-transform">
+                    <div class="icon-title-group">
+                        <div class="icon-md rounded-full flex items-center justify-center float-animation">
+                            <i class="fas fa-truck text-white text-3xl"></i>
+                        </div>
+                        <h3 class="font-display">Delivery Volunteer</h3>
+                    </div>
+                    <p class="description font-sans">
+                        Be the lifeline for families by delivering essential food packages and supplies directly to their homes. This role is crucial for ensuring aid reaches those who need it most, quickly and efficiently.
+                    </p>
+                    <div class="key-details-list">
+                        <p class="font-sans">Key Details</p>
+                        <ul class="font-sans">
+                            <li><i class="fas fa-clock list-item-icon-revised mr-2"></i>4-6 hours per week</li>
+                            <li><i class="fas fa-car list-item-icon-revised mr-2"></i>Vehicle required</li>
+                            <li><i class="fas fa-map-marker-alt list-item-icon-revised mr-2"></i>Beirut & surrounding areas</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="core-role-card-revised p-8 reveal stagger-2 hover-transform">
+                    <div class="icon-title-group">
+                        <div class="icon-md rounded-full flex items-center justify-center float-animation" style="animation-delay: 0.2s;">
+                            <i class="fas fa-phone text-white text-3xl"></i>
+                        </div>
+                        <h3 class="font-display">Support Coordinator</h3>
+                    </div>
+                    <p class="description font-sans">
+                        Provide vital remote support by being the first point of contact for families seeking help. You'll assess needs, offer guidance, and coordinate with our on-the-ground teams to ensure timely assistance.
+                    </p>
+                    <div class="key-details-list">
+                        <p class="font-sans">Key Details</p>
+                        <ul class="font-sans">
+                            <li><i class="fas fa-clock list-item-icon-revised mr-2"></i>3-5 hours per week</li>
+                            <li><i class="fas fa-home list-item-icon-revised mr-2"></i>Work from home</li>
+                            <li><i class="fas fa-language list-item-icon-revised mr-2"></i>Arabic & English preferred</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="core-role-card-revised p-8 reveal stagger-3 hover-transform">
+                    <div class="icon-title-group">
+                        <div class="icon-md rounded-full flex items-center justify-center float-animation" style="animation-delay: 0.4s;">
+                            <i class="fas fa-laptop text-white text-3xl"></i>
+                        </div>
+                        <h3 class="font-display">Digital Support Volunteer</h3>
+                    </div>
+                    <p class="description font-sans">
+                        Leverage your digital skills to amplify our reach and efficiency. Help with social media outreach, website content updates, data entry, or graphic design to support our mission from anywhere.
+                    </p>
+                    <div class="key-details-list">
+                        <p class="font-sans">Key Details</p>
+                        <ul class="font-sans">
+                            <li><i class="fas fa-clock list-item-icon-revised mr-2"></i>2-4 hours per week</li>
+                            <li><i class="fas fa-home list-item-icon-revised mr-2"></i>Remote work</li>
+                            <li><i class="fas fa-tools list-item-icon-revised mr-2"></i>Tech skills helpful</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="core-role-card-revised p-8 reveal stagger-4 hover-transform">
+                    <div class="icon-title-group">
+                        <div class="icon-md rounded-full flex items-center justify-center float-animation" style="animation-delay: 0.6s;">
+                            <i class="fas fa-handshake text-white text-3xl"></i>
+                        </div>
+                        <h3 class="font-display">Family Liaison</h3>
+                    </div>
+                    <p class="description font-sans">
+                        Build meaningful relationships with the families we serve. Provide ongoing emotional support, check on their well-being, and ensure they feel heard and cared for throughout their journey.
+                    </p>
+                    <div class="key-details-list">
+                        <p class="font-sans">Key Details</p>
+                        <ul class="font-sans">
+                            <li><i class="fas fa-clock list-item-icon-revised mr-2"></i>5-8 hours per week</li>
+                            <li><i class="fas fa-handshake list-item-icon-revised mr-2"></i>Strong empathy & communication</li>
+                            <li><i class="fas fa-map-marker-alt list-item-icon-revised mr-2"></i>Field visits required</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW Contact Us for Volunteering Section - IMPROVED DESIGN -->
+    <section class="section-padding bg-navy-900">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="volunteer-contact-section reveal">
+                <i class="fab fa-whatsapp icon-large-whatsapp"></i>
+                <h2 class="font-display">Ready to Volunteer? Let's Connect.</h2>
+                <p class="font-sans">
+                    We believe in direct, transparent communication. For all volunteer inquiries, please reach out to us directly on WhatsApp. It's the fastest way to get your questions answered and start your journey with HAQQ.
+                </p>
+                <a href="https://wa.me/447895448317" class="btn-whatsapp-lg">
+                    <i class="fab fa-whatsapp"></i>
+                    Message Us on WhatsApp
+                </a>
+                <p class="info-text font-sans">
+                    Our team is ready to assist you. We typically respond within minutes.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section - IMPROVED DESIGN -->
+    <section class="section-padding bg-navy-950">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-4xl md:text-6xl font-display font-black text-white mb-8 gold-text-shadow">
+                    Frequently Asked <span class="text-gradient-gold">Questions</span>
+                </h2>
+                <p class="text-xl text-gold-200 max-w-3xl mx-auto font-sans">
+                    Find answers to common questions about volunteering with HAQQ.
+                </p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto luxury-card p-0">
+                <details class="faq-item reveal stagger-1">
+                    <summary>What is the time commitment for volunteers?</summary>
+                    <div class="faq-content">
+                        <p>Time commitments vary by role, but most of our core volunteering positions require 2-8 hours per week. We offer flexible scheduling to accommodate your availability. Specific details are listed under each volunteer role.</p>
+                    </div>
+                </details>
+                <details class="faq-item reveal stagger-2">
+                    <summary>Do I need specific skills or experience?</summary>
+                    <div class="faq-content">
+                        <p>While some roles benefit from specific skills (e.g., vehicle for delivery, language skills for support), many positions primarily require a compassionate heart and a willingness to help. We provide necessary training for all roles.</p>
+                    </div>
+                </details>
+                <details class="faq-item reveal stagger-3">
+                    <summary>How does HAQQ ensure volunteer safety?</summary>
+                    <div class="faq-content">
+                        <p>Volunteer safety is our top priority. We provide clear guidelines, safety briefings, and ensure all activities are conducted in secure environments. For field roles, volunteers are often paired, and routes are carefully planned.</p>
+                    </div>
+                </details>
+                <details class="faq-item reveal stagger-4">
+                    <summary>Can I volunteer remotely?</summary>
+                    <div class="faq-content">
+                        <p>Yes, our Digital Support Volunteer and Support Coordinator roles are designed to be performed remotely, allowing you to contribute from anywhere with an internet connection.</p>
+                    </div>
+                </details>
+                <details class="faq-item reveal stagger-5">
+                    <summary>How do I apply to become a volunteer?</summary>
+                    <div class="faq-content">
+                        <p>You can express your interest by clicking the "Join as Volunteer" button below, which will direct you to our contact page. Please send us a WhatsApp message detailing your interest and availability, and our team will get back to you.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section-padding bg-gradient-to-br from-navy-950 to-navy-800 text-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center reveal">
+            <h2 class="text-4xl md:text-6xl font-display font-black mb-8 gold-text-shadow">
+                Ready to Make a <span class="text-gradient-gold">Difference</span>?
+            </h2>
+            <p class="text-xl mb-12 max-w-3xl mx-auto leading-relaxed font-sans">
+                Join our team of dedicated volunteers and help us restore hope to Lebanese families. 
+                Every hour you contribute saves lives and builds a better future.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="contact.html" class="btn-gold">
+                    <i class="fab fa-whatsapp mr-3"></i>
+                    Join as Volunteer
+                </a>
+                <a href="about.html" class="btn-outline">
+                    <i class="fas fa-info-circle mr-3"></i>
+                    Learn More About Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-950 text-white py-20">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-8">
+                        <a href="index.html" class="logo-container mr-6">
+                            <img src="logo7aq.png" alt="HAQQ Logo" class="w-20 h-20 object-contain logo-shadow" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0iI2Q0YTAxNyIvPgo8dGV4dCB4PSI0MCIgeT0iNDUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiMwNTA4MjEiIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbm5hbnQtYmFzZWxpbmU9ImNlbnRyYWwiPjJLM1pndm1CPC90ZXh0Pgo8L2N2Zz4K'">
+                        </a>
+                        <div>
+                            <h3 class="text-3xl font-display font-bold">HAQQ</h3>
+                            <p class="text-gold-400 arabic-text text-lg font-semibold">حركة حَقّ</p>
+                        </div>
+                    </div>
+                    <p class="text-gold-200 text-xl leading-relaxed mb-8 font-display">
+                        We just want to help Lebanese people in need. This is our purpose for existence.
+                    </p>
+                    <p class="text-gold-300 arabic-text text-lg font-medium">
+                        نحن فقط نريد أن نساعد الناس المحتاجين
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-display font-bold mb-6 text-gold-400">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gold-200 hover:text-white transition-colors text-lg font-medium">Home</a></li>
+                        <li><a href="about.html" class="text-gold-200 hover:text-white transition-colors text-lg font-medium">About Us</a></li>
+                        <li><a href="how-we-help.html" class="text-gold-200 hover:text-white transition-colors text-lg font-medium">How We Help</a></li>
+                        <li><a href="impact.html" class="text-gold-200 hover:text-white transition-colors text-lg font-medium">Our Impact</a></li>
+                        <li><a href="stories.html" class="text-gold-200 hover:text-white transition-colors text-lg font-medium">Success Stories</a></li>
+                        <li><a href="founder.html" class="text-gold-200 hover:text-white transition-colors text-lg font-medium">Our Founder</a></li>
+                        <li><a href="contact.html" class="text-gold-200 hover:text-white transition-colors text-lg font-medium">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-display font-bold mb-6 text-gold-400">Contact</h4>
+                    <div class="space-y-3">
+                        <p class="text-gold-200 text-lg">WhatsApp Only</p>
+                        <p class="text-gold-200 text-lg">Direct & Transparent</p>
+                        <p class="text-gold-200 text-lg">24/7 for Emergencies</p>
+                        <a href="https://wa.me/447895448317" class="inline-flex items-center text-gold-500 hover:text-gold-300 transition-colors mt-6 text-lg font-semibold">
+                            <i class="fab fa-whatsapp mr-3 text-xl"></i>
+                            Message Us Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gold-600/30 pt-10 text-center">
+                <p class="text-gold-300 mb-3 text-lg">
+                    &copy; 2025 HAQQ. Founded by Alexandro Ghanem (ألكسندرو غانم)
+                </p>
+                <p class="text-gold-400 text-lg">
+                    <i class="fas fa-heart text-red-500 mr-3"></i>
+                    This is our purpose for existence
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Navbar scroll effect
+        let lastScrollY = window.scrollY;
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY > 100) {
+                navbar.classList.add('glass-dark');
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('glass-dark');
+                navbar.classList.remove('shadow-lg');
+            }
+
+            // Only hide navbar when scrolling down significantly
+            if (currentScrollY > lastScrollY && currentScrollY > 300) {
+                navbar.style.transform = 'translateY(-100%)';
+                navbar.style.transition = 'transform 0.3s ease-in-out';
+            } else {
+                navbar.style.transform = 'translateY(0)';
+                navbar.style.transition = 'transform 0.3s ease-in-out';
+            }
+
+            lastScrollY = currentScrollY;
+        });
+
+        // Intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Loading animation
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelectorAll('.reveal').forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('active');
+                    }, index * 100);
+                });
+            }, 300);
+        });
+
+        // Add smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Enhanced hover effects
+        document.querySelectorAll('.hover-transform').forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                element.style.transform = 'translateY(-12px) scale(1.02)';
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                element.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Logo glow effect on scroll
+        window.addEventListener('scroll', () => {
+            const logos = document.querySelectorAll('.logo-shadow');
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            
+            logos.forEach(logo => {
+                logo.style.filter = `drop-shadow(0 0 ${15 + Math.abs(rate * 0.1)}px rgba(212, 160, 23, 0.6))`;
+            });
+        });
+    </script>
+</body>
+</html>

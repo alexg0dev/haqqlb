@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact HAQQ - حركة حَقّ | Get Help Now</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'lebanon': {
+                            red: '#DC2626',
+                            green: '#059669',
+                            white: '#FFFFFF'
+                        },
+                        'navy': {
+                            50: '#f0f5ff',
+                            100: '#e0eaff',
+                            200: '#c7d9ff',
+                            300: '#a3bdff',
+                            400: '#7a97ff',
+                            500: '#5b70fc',
+                            600: '#3f4cf1',
+                            700: '#2f3ad1',
+                            800: '#0f1b4d',
+                            900: '#0a1033',
+                            950: '#050821',
+                        },
+                        'gold': {
+                            50: '#fefbe8',
+                            100: '#fff8c2',
+                            200: '#ffee89',
+                            300: '#ffde44',
+                            400: '#ffcf1b',
+                            500: '#d4a017',
+                            600: '#b78210',
+                            700: '#95650c',
+                            800: '#7a5210',
+                            900: '#644212',
+                            950: '#3a2409',
+                        },
+                    },
+                    fontFamily: {
+                        'display': ['Cormorant Garamond', 'serif'],
+                        'sans': ['Montserrat', 'sans-serif'],
+                        'arabic': ['Amiri', 'serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'gradient-shift': 'gradientShift 10s ease infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'shimmer': 'shimmer 2s linear infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        gradientShift: {
+                            '0%, 100%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        shimmer: {
+                            '0%': { transform: 'translateX(-100%)' },
+                            '100%': { transform: 'translateX(100%)' }
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 5px rgba(212, 160, 23, 0.5)' },
+                            '100%': { boxShadow: '0 0 20px rgba(212, 160, 23, 0.8)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #050821;
+            color: #fff;
+        }
+        .glass-dark {
+            background: rgba(5, 8, 33, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 160, 23, 0.3);
+        }
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #d4a017, #b78210);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hover-transform {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hover-transform:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(5, 8, 33, 0.3);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+        .stagger-5 { transition-delay: 0.5s; }
+        .stagger-6 { transition-delay: 0.6s; }
+        
+        .arabic-text {
+            font-family: 'Amiri', serif;
+            direction: rtl;
+        }
+        .btn-gold {
+            background: #d4a017;
+            border: none;
+            color: #050821;
+            font-weight: 700;
+            padding: 1.25rem 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 50px;
+        }
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 160, 23, 0.4);
+            background: #b78210;
+        }
+        .btn-gold::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s;
+        }
+        .btn-gold:hover::before {
+            left: 100%;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #d4a017;
+            color: #d4a017;
+            font-weight: 700;
+            padding: 1.25rem 2.5rem;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 50px;
+        }
+        .btn-outline:hover {
+            background: rgba(212, 160, 23, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 160, 23, 0.3);
+        }
+        .luxury-card {
+            background: #0a1033;
+            border: 1px solid #d4a017;
+            box-shadow: 0 20px 40px rgba(5, 8, 33, 0.4);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border-radius: 24px;
+        }
+        .luxury-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, #d4a017, #b78210);
+        }
+        .luxury-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(5, 8, 33, 0.5);
+        }
+        .gold-border-rounded {
+            border: 2px solid #d4a017;
+            border-radius: 24px;
+        }
+        .gold-text-shadow {
+            text-shadow: 0 0 10px rgba(212, 160, 23, 0.5);
+        }
+        .logo-shadow {
+            filter: drop-shadow(0 0 15px rgba(212, 160, 23, 0.6));
+        }
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            background: rgba(212, 160, 23, 0.1);
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #d4a017;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        .nav-link:hover::after {
+            width: 80%;
+        }
+        .section-padding {
+            padding: 10rem 0;
+        }
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 5rem 0;
+            }
+        }
+
+        /* Aid Type Cards (used for contact options) */
+        .aid-card {
+            background: #0a1033; /* Darker background */
+            border: 1px solid #d4a017; /* Gold border */
+            box-shadow: 0 15px 30px rgba(212, 160, 23, 0.1); /* Subtle gold shadow */
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .aid-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, #d4a017, #b78210);
+        }
+        .aid-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(212, 160, 23, 0.25);
+        }
+        .aid-card .icon-circle {
+            background: linear-gradient(135deg, #d4a017, #b78210); /* Gold gradient for icon background */
+            box-shadow: 0 5px 15px rgba(212, 160, 23, 0.4);
+        }
+        .aid-card .list-item-check {
+            color: #059669; /* Lebanon Green for checkmarks */
+        }
+
+        /* Pattern Background */
+        .pattern-bg {
+            background-image: radial-gradient(circle, rgba(212, 160, 23, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-navy-950 text-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-500" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center py-6">
+                <div class="flex items-center space-x-6">
+                    <a href="index.html" class="logo-container">
+                        <img src="logo7aq.png" alt="HAQQ Logo" class="w-20 h-20 object-contain logo-shadow hover-scale" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0iI2Q0YTAxNyIvPgo8dGV4dCB4PSI0MCIgeT0iNDUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiMwNTA4MjEiIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0iY2VudHJhbCI+2K3ZgtmCPC90ZXh0Pgo8L2VzZz4K'">
+                    </a>
+                    <div class="ml-4">
+                        <h1 class="text-3xl font-display font-bold text-white gold-text-shadow">HAQQ</h1>
+                        <p class="text-gold-500 arabic-text font-semibold text-lg">حركة حَقّ</p>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-white hover:text-gold-500 font-semibold transition-all duration-300 uppercase tracking-wide text-sm">Home</a>
+                    <a href="about.html" class="nav-link text-white hover:text-gold-500 font-semibold transition-all duration-300 uppercase tracking-wide text-sm">About</a>
+                    <a href="how-we-help.html" class="nav-link text-white hover:text-gold-500 font-semibold transition-all duration-300 uppercase tracking-wide text-sm">How We Help</a>
+                    <a href="impact.html" class="nav-link text-white hover:text-gold-500 font-semibold transition-all duration-300 uppercase tracking-wide text-sm">Impact</a>
+                    <a href="volunteer.html" class="nav-link text-white hover:text-gold-500 font-semibold transition-all duration-300 uppercase tracking-wide text-sm">Volunteer</a>
+                    <a href="contact.html" class="btn-gold">
+                        Get Help
+                    </a>
+                </div>
+                
+                <button class="lg:hidden p-4 bg-navy-950 text-gold-500 gold-border-rounded" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="lg:hidden hidden glass-dark" id="mobile-menu">
+            <div class="px-6 py-10 space-y-8">
+                <a href="index.html" class="block py-4 text-white hover:text-gold-300 font-semibold text-xl transition-colors">Home</a>
+                <a href="about.html" class="block py-4 text-white hover:text-gold-300 font-semibold text-xl transition-colors">About</a>
+                <a href="how-we-help.html" class="block py-4 text-white hover:text-gold-300 font-semibold text-xl transition-colors">How We Help</a>
+                <a href="impact.html" class="block py-4 text-white hover:text-gold-300 font-semibold text-xl transition-colors">Impact</a>
+                <a href="volunteer.html" class="block py-4 text-white hover:text-gold-300 font-semibold text-xl transition-colors">Volunteer</a>
+                <a href="contact.html" class="block py-4 text-gold-300 font-bold text-xl">Get Help</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-navy-950">
+        <div class="absolute inset-0 bg-gradient-to-br from-navy-950 to-navy-800 animate-gradient-shift"></div>
+        <div class="absolute inset-0 pattern-bg opacity-20"></div>
+        
+        <div class="relative z-10 text-center text-white px-6 max-w-7xl mx-auto">
+            <div class="reveal">
+                <div class="mb-12">
+                    
+                    
+                    <h1 class="text-5xl md:text-7xl font-display font-black text-white mb-8 leading-tight gold-text-shadow">
+                        Need Help?
+                    </h1>
+                    <h2 class="text-4xl md:text-6xl font-display font-black mb-8 text-gradient-gold">
+                        We're Here for You
+                    </h2>
+                    
+                    <p class="text-2xl text-gold-200 font-light mb-12 max-w-4xl mx-auto leading-relaxed font-sans">
+                        Don't wait. Don't hesitate. If you or your family need help, 
+                        <span class="font-semibold text-gold-300">contact us immediately.</span>
+                    </p>
+                </div>
+                
+                <div class="mb-16">
+                    <a href="https://wa.me/96170123456" class="btn-gold text-xl inline-flex items-center">
+                        <i class="fab fa-whatsapp mr-4 text-3xl"></i>
+                        Message HAQQ Now
+                    </a>
+                    <p class="text-gold-200 mt-6 text-lg font-sans">Available 24/7 for emergencies</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                    <div class="luxury-card p-8 rounded-3xl text-center">
+                        <i class="fas fa-clock text-3xl text-gold-400 mb-4"></i>
+                        <h3 class="font-display font-semibold mb-2 text-xl text-gold-400">24/7 Response</h3>
+                        <p class="text-gray-300 font-sans">We respond to emergencies immediately</p>
+                    </div>
+                    <div class="luxury-card p-8 rounded-3xl text-center">
+                        <i class="fas fa-shield-alt text-3xl text-lebanon-green mb-4"></i>
+                        <h3 class="font-display font-semibold mb-2 text-xl text-gold-400">No Questions Asked</h3>
+                        <p class="text-gray-300 font-sans">We help first, ask questions later</p>
+                    </div>
+                    <div class="luxury-card p-8 rounded-3xl text-center">
+                        <i class="fas fa-heart text-3xl text-red-400 mb-4"></i>
+                        <h3 class="font-display font-semibold mb-2 text-xl text-gold-400">Complete Privacy</h3>
+                        <p class="text-gray-300 font-sans">Your situation stays confidential</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Options -->
+    <section class="section-padding bg-navy-950">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-4xl md:text-6xl font-display font-black text-white mb-8 gold-text-shadow">
+                    How to <span class="text-gradient-gold">Reach Us</span>
+                </h2>
+                <p class="text-xl text-gold-200 max-w-3xl mx-auto font-sans">
+                    We use WhatsApp only for direct, transparent communication. No forms, no delays, no bureaucracy.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Need Help -->
+                <div class="aid-card p-12 reveal stagger-1">
+                    <div class="text-center mb-10">
+                        <div class="w-20 h-20 icon-circle rounded-full flex items-center justify-center mx-auto mb-6 float-animation">
+                            <i class="fas fa-hand-holding-heart text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-display font-bold text-gold-400 mb-4">Need Help?</h3>
+                        <p class="text-gray-300 mb-6 leading-relaxed text-xl font-sans">
+                            If you or your family need food, supplies, cash assistance, or emergency aid, 
+                            contact us immediately. We're here to help.
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center text-gray-300 text-lg font-sans">
+                            <i class="fas fa-check-circle list-item-check mr-6 text-xl"></i>
+                            <span>Emergency food packages delivered within 24 hours</span>
+                        </div>
+                        <div class="flex items-center text-gray-300 text-lg font-sans">
+                            <i class="fas fa-check-circle list-item-check mr-6 text-xl"></i>
+                            <span>Direct cash assistance for urgent needs</span>
+                        </div>
+                        <div class="flex items-center text-gray-300 text-lg font-sans">
+                            <i class="fas fa-check-circle list-item-check mr-6 text-xl"></i>
+                            <span>School supplies and educational support</span>
+                        </div>
+                        <div class="flex items-center text-gray-300 text-lg font-sans">
+                            <i class="fas fa-check-circle list-item-check mr-6 text-xl"></i>
+                            <span>Emergency shelter and housing support</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-10 text-center">
+                        <a href="https://wa.me/96170123456" class="btn-gold text-xl inline-flex items-center">
+                            <i class="fab fa-whatsapp mr-3 text-xl"></i>
+                            Get Help Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Want to Help -->
+                <div class="aid-card p-12 reveal stagger-2">
+                    <div class="text-center mb-10">
+                        <div class="w-20 h-20 icon-circle rounded-full flex items-center justify-center mx-auto mb-6 float-animation" style="animation-delay: 0.2s;">
+                            <i class="fas fa-heart text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-display font-bold text-gold-400 mb-4">Want to Help?</h3>
+                        <p class="text-gray-300 mb-6 leading-relaxed text-xl font-sans">
+                            Your donation goes directly to Lebanese families. Every dollar makes a real, 
+                            immediate difference in someone's life.
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center text-gray-300 text-lg font-sans">
+                            <i class="fas fa-check-circle list-item-check mr-6 text-xl"></i>
+                            <span>100% of donations go to families (no fees)</span>
+                        </div>
+                        <div class="flex items-center text-gray-300 text-lg font-sans">
+                            <i class="fas fa-check-circle list-item-check mr-6 text-xl"></i>
+                            <span>Complete transparency on fund usage</span>
+                        </div>
+                        <div class="flex items-center text-gray-300 text-lg font-sans">
+                            <i class="fas fa-check-circle list-item-check mr-6 text-xl"></i>
+                            <span>OMT and direct transfer options available</span>
+                        </div>
+                        <div class="flex items-center text-gray-300 text-lg font-sans">
+                            <i class="fas fa-check-circle list-item-check mr-6 text-xl"></i>
+                            <span>Regular updates on your donation's impact</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-10 text-center">
+                        <a href="https://wa.me/96170123456" class="btn-gold text-xl inline-flex items-center">
+                            <i class="fab fa-whatsapp mr-3 text-xl"></i>
+                            Donate Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Section -->
+    <section class="section-padding bg-navy-900 text-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center reveal">
+                <div class="mb-16">
+                    <i class="fab fa-whatsapp text-gold-500 text-8xl mb-8"></i>
+                    <h2 class="text-4xl md:text-6xl font-display font-black text-white mb-8 gold-text-shadow">
+                        WhatsApp Only
+                    </h2>
+                    <p class="text-xl text-gold-200 max-w-4xl mx-auto leading-relaxed mb-12 font-sans">
+                        We use WhatsApp for all communication because it's direct, transparent, and immediate. 
+                        No forms to fill out, no waiting for callbacks, no bureaucracy.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8 mb-16">
+                    <div class="luxury-card p-8 rounded-3xl text-center">
+                        <i class="fas fa-bolt text-gold-400 text-3xl mb-4"></i>
+                        <h3 class="text-xl font-display font-bold text-gold-400 mb-3">Instant Response</h3>
+                        <p class="text-gray-300 font-sans">We typically respond within minutes, not hours or days</p>
+                    </div>
+                    
+                    <div class="luxury-card p-8 rounded-3xl text-center">
+                        <i class="fas fa-eye text-lebanon-green text-3xl mb-4"></i>
+                        <h3 class="text-xl font-display font-bold text-gold-400 mb-3">Full Transparency</h3>
+                        <p class="text-gray-300 font-sans">You can see when we read your message and when we respond</p>
+                    </div>
+                    
+                    <div class="luxury-card p-8 rounded-3xl text-center">
+                        <i class="fas fa-lock text-blue-400 text-3xl mb-4"></i>
+                        <h3 class="text-xl font-display font-bold text-gold-400 mb-3">Secure & Private</h3>
+                        <p class="text-gray-300 font-sans">End-to-end encryption keeps your information safe</p>
+                    </div>
+                </div>
+                
+                <div class="luxury-card p-12 rounded-3xl max-w-3xl mx-auto">
+                    <h3 class="text-3xl font-display font-bold text-gold-400 mb-8">Ready to Connect?</h3>
+                    <p class="text-xl text-gold-200 mb-10 leading-relaxed font-sans">
+                        Whether you need help or want to help others, we're just one message away. 
+                        Click the button below to start a conversation with our team.
+                    </p>
+                    
+                    <a href="https://wa.me/96170123456" class="btn-gold text-xl inline-flex items-center">
+                        <i class="fab fa-whatsapp mr-4 text-3xl"></i>
+                        Start WhatsApp Chat
+                    </a>
+                    
+                    <p class="text-gold-300 mt-8 text-lg font-sans">
+                        Available 24/7 for emergencies • Usually respond within 5 minutes
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Contact -->
+    <section class="section-padding bg-gradient-to-br from-red-600 to-red-800">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center reveal">
+            <div class="mb-12">
+                <i class="fas fa-exclamation-triangle text-6xl mb-6 text-white"></i>
+                <h2 class="text-4xl md:text-5xl font-display font-black mb-6 text-white">
+                    Emergency? Don't Wait!
+                </h2>
+                <p class="text-xl max-w-3xl mx-auto leading-relaxed mb-8 text-red-100 font-sans">
+                    If you're in immediate need of food, shelter, or emergency assistance, 
+                    contact us right now. We prioritize emergency cases and respond immediately.
+                </p>
+            </div>
+            
+            <div class="bg-white/20 backdrop-blur-sm p-10 rounded-3xl max-w-2xl mx-auto gold-border-rounded">
+                <h3 class="text-2xl font-display font-bold mb-6 text-white">Emergency Contact Protocol</h3>
+                <div class="space-y-4 text-left font-sans">
+                    <div class="flex items-start">
+                        <span class="bg-white text-red-600 rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 mt-1">1</span>
+                        <p class="text-white">Message us on WhatsApp with "EMERGENCY" as the first word</p>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="bg-white text-red-600 rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 mt-1">2</span>
+                        <p class="text-white">Briefly describe your immediate need (food, shelter, medical, etc.)</p>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="bg-white text-red-600 rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 mt-1">3</span>
+                        <p class="text-white">We will respond within minutes and arrange immediate assistance</p>
+                    </div>
+                </div>
+                
+                <div class="mt-8">
+                    <a href="https://wa.me/96170123456" class="bg-white text-red-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg inline-flex items-center">
+                        <i class="fab fa-whatsapp mr-3 text-xl"></i>
+                        Emergency Contact
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-950 text-white py-20">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-8">
+                        <a href="index.html" class="logo-container mr-6">
+                            <img src="logo7aq.png" alt="HAQQ Logo" class="w-20 h-20 object-contain logo-shadow" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXw0MCciIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiMwNTA4MjEiIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0iY2VudHJhbCI+2K3ZgtmCPC90ZXh0Pgo8L2VzZz4K'">
+                        </a>
+                        <div>
+                            <h3 class="text-3xl font-display font-bold">HAQQ</h3>
+                            <p class="text-gold-400 arabic-text text-lg font-semibold">حركة حَقّ</p>
+                        </div>
+                    </div>
+                    <p class="text-gold-200 text-xl leading-relaxed mb-8 font-display">
+                        We just want to help Lebanese people in need. This is our purpose for existence.
+                    </p>
+                    <p class="text-gold-300 arabic-text text-lg font-medium">
+                        نحن فقط نريد أن نساعد الناس المحتاجين
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-display font-bold mb-6 text-gold-400">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gold-200 hover:text-white transition-colors text-lg font-medium">Home</a></li>
+                        <li><a href="about.html" class="text-gold-200 hover:text-white transition-colors text-lg font-medium">About Us</a></li>
+                        <li><a href="how-we-help.html" class="text-gold-200 hover:text-white transition-colors text-lg font-medium">How We Help</a></li>
+                        <li><a href="impact.html" class="text-gold-200 hover:text-white transition-colors text-lg font-medium">Impact</a></li>
+                        <li><a href="volunteer.html" class="text-gold-200 hover:text-white transition-colors text-lg font-medium">Volunteer</a></li>
+                        <li><a href="founder.html" class="text-gold-200 hover:text-white transition-colors text-lg font-medium">Our Founder</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-display font-bold mb-6 text-gold-400">Contact</h4>
+                    <div class="space-y-3">
+                        <p class="text-gold-200 text-lg">WhatsApp Only</p>
+                        <p class="text-gold-200 text-lg">Direct & Transparent</p>
+                        <p class="text-gold-200 text-lg">24/7 for Emergencies</p>
+                        <a href="https://wa.me/96170123456" class="inline-flex items-center text-gold-500 hover:text-gold-300 transition-colors mt-6 text-lg font-semibold">
+                            <i class="fab fa-whatsapp mr-3 text-xl"></i>
+                            Message Us Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gold-600/30 pt-10 text-center">
+                <p class="text-gold-300 mb-3 text-lg">
+                    &copy; 2025 HAQQ. Founded by Alexandro Ghanem (ألكسندرو غانم)
+                </p>
+                <p class="text-gold-400 text-lg">
+                    <i class="fas fa-heart text-red-500 mr-3"></i>
+                    This is our purpose for existence
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('glass-dark');
+                navbar.classList.add('shadow-2xl');
+            } else {
+                navbar.classList.remove('glass-dark');
+                navbar.classList.remove('shadow-2xl');
+            }
+        });
+
+        // Intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Loading animation
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelectorAll('.reveal').forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('active');
+                    }, index * 100);
+                });
+            }, 300);
+        });
+
+        // WhatsApp button pulse effect (adjusted for new button styles)
+        const whatsappButtons = document.querySelectorAll('.btn-gold'); // Target btn-gold
+        whatsappButtons.forEach(button => {
+            setInterval(() => {
+                button.style.transform = 'translateY(-3px) scale(1.02)'; // Slight lift and scale
+                setTimeout(() => {
+                    button.style.transform = 'translateY(0px) scale(1)';
+                }, 200);
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

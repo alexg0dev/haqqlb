@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How We Help - HAQQ حركة حَقّ | Direct Aid & Support</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'lebanon': {
+                            red: '#DC2626',
+                            green: '#059669',
+                            white: '#FFFFFF'
+                        },
+                        'navy': {
+                            50: '#f0f5ff',
+                            100: '#e0eaff',
+                            200: '#c7d9ff',
+                            300: '#a3bdff',
+                            400: '#7a97ff',
+                            500: '#5b70fc',
+                            600: '#3f4cf1',
+                            700: '#2f3ad1',
+                            800: '#0f1b4d',
+                            900: '#0a1033',
+                            950: '#050821',
+                        },
+                        'gold': {
+                            50: '#fefbe8',
+                            100: '#fff8c2',
+                            200: '#ffee89',
+                            300: '#ffde44',
+                            400: '#ffcf1b',
+                            500: '#d4a017',
+                            600: '#b78210',
+                            700: '#95650c',
+                            800: '#7a5210',
+                            900: '#644212',
+                            950: '#3a2409',
+                        },
+                    },
+                    fontFamily: {
+                        'display': ['Cormorant Garamond', 'serif'],
+                        'sans': ['Montserrat', 'sans-serif'],
+                        'arabic': ['Amiri', 'serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'gradient-shift': 'gradientShift 10s ease infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'shimmer': 'shimmer 2s linear infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        gradientShift: {
+                            '0%, 100%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        shimmer: {
+                            '0%': { transform: 'translateX(-100%)' },
+                            '100%': { transform: 'translateX(100%)' }
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 5px rgba(212, 160, 23, 0.5)' },
+                            '100%': { boxShadow: '0 0 20px rgba(212, 160, 23, 0.8)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #050821;
+            color: #fff;
+        }
+        .glass-dark {
+            background: rgba(5, 8, 33, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 160, 23, 0.3);
+        }
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #d4a017, #b78210);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hover-transform {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hover-transform:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(5, 8, 33, 0.3);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+        .stagger-5 { transition-delay: 0.5s; }
+        .stagger-6 { transition-delay: 0.6s; }
+        
+        .arabic-text {
+            font-family: 'Amiri', serif;
+            direction: rtl;
+        }
+        .btn-gold {
+            background: #d4a017;
+            border: none;
+            color: #050821;
+            font-weight: 700;
+            padding: 1.25rem 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 50px;
+        }
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 160, 23, 0.4);
+            background: #b78210;
+        }
+        .btn-gold::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s;
+        }
+        .btn-gold:hover::before {
+            left: 100%;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #d4a017;
+            color: #d4a017;
+            font-weight: 700;
+            padding: 1.25rem 2.5rem;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 50px;
+        }
+        .btn-outline:hover {
+            background: rgba(212, 160, 23, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 160, 23, 0.3);
+        }
+        .luxury-card {
+            background: #0a1033;
+            border: 1px solid #d4a017;
+            box-shadow: 0 20px 40px rgba(5, 8, 33, 0.4);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border-radius: 24px;
+        }
+        .luxury-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, #d4a017, #b78210);
+        }
+        .luxury-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(5, 8, 33, 0.5);
+        }
+        .gold-border-rounded {
+            border: 2px solid #d4a017;
+            border-radius: 24px;
+        }
+        .gold-text-shadow {
+            text-shadow: 0 0 10px rgba(212, 160, 23, 0.5);
+        }
+        .logo-shadow {
+            filter: drop-shadow(0 0 15px rgba(212, 160, 23, 0.6));
+        }
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            background: rgba(212, 160, 23, 0.1);
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #d4a017;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        .nav-link:hover::after {
+            width: 80%;
+        }
+        .section-padding {
+            padding: 10rem 0;
+        }
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 5rem 0;
+            }
+        }
+
+        /* Aid Type Cards */
+        .aid-card {
+            background: #0a1033; /* Darker background */
+            border: 1px solid #d4a017; /* Gold border */
+            box-shadow: 0 15px 30px rgba(212, 160, 23, 0.1); /* Subtle gold shadow */
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .aid-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, #d4a017, #b78210);
+        }
+        .aid-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(212, 160, 23, 0.25);
+        }
+        .aid-card .icon-circle {
+            background: linear-gradient(135deg, #d4a017, #b78210); /* Gold gradient for icon background */
+            box-shadow: 0 5px 15px rgba(212, 160, 23, 0.4);
+        }
+        .aid-card .list-item-check {
+            color: #059669; /* Lebanon Green for checkmarks */
+        }
+
+        /* Process Steps */
+        .process-step {
+            background: #0a1033;
+            border: 1px solid #d4a017;
+            border-radius: 20px;
+            position: relative;
+            transition: all 0.4s ease;
+            padding-top: 4rem; /* Space for the number circle */
+        }
+        .process-step .step-number {
+            position: absolute;
+            top: -2rem; /* Adjust to float above the card */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4rem;
+            height: 4rem;
+            background: linear-gradient(135deg, #d4a017, #b78210);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            font-weight: bold;
+            color: #050821; /* Dark text for contrast */
+            box-shadow: 0 5px 15px rgba(212, 160, 23, 0.4);
+            z-index: 10;
+        }
+        .process-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(212, 160, 23, 0.2);
+        }
+
+        /* Emergency Banner */
+        .emergency-banner {
+            background: linear-gradient(135deg, #dc2626, #991b1b);
+            border-bottom: 2px solid #fca5a5;
+            animation: pulse-slow 2s infinite;
+            box-shadow: 0 5px 20px rgba(220, 38, 38, 0.4);
+        }
+
+        /* Stats Counter */
+        .stats-counter {
+            font-variant-numeric: tabular-nums;
+            font-weight: 900;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Floating Animation */
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Pattern Background */
+        .pattern-bg {
+            background-image: radial-gradient(circle, rgba(212, 160, 23, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-navy-950 text-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-500" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center py-6">
+                <div class="flex items-center space-x-6">
+                    <a href="index.html" class="logo-container">
+                        <img src="logo7aq.png" alt="HAQQ Logo" class="w-20 h-20 object-contain logo-shadow hover-scale" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIiByeD0iMTAiIGZpbGw9IiNkNGEwMTciLz4KPHRleHQgeD0iNDAiIHk9IjQ1IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjMDUwODIxIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0iY2VudHJhbCI+2K3ZgtmCPC90ZXh0Pgo8L2N2Zz4K'">
+                    </a>
+                    <div class="ml-4">
+                        <h1 class="text-3xl font-display font-bold text-white gold-text-shadow">HAQQ</h1>
+                        <p class="text-gold-500 arabic-text font-semibold text-lg">حركة حَقّ</p>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-white hover:text-gold-500 font-semibold transition-all duration-300 uppercase tracking-wide text-sm">Home</a>
+                    <a href="about.html" class="nav-link text-white hover:text-gold-500 font-semibold transition-all duration-300 uppercase tracking-wide text-sm">About</a>
+                    <a href="how-we-help.html" class="nav-link text-gold-500 hover:text-gold-500 font-semibold transition-all duration-300 uppercase tracking-wide text-sm">How We Help</a>
+                    <a href="impact.html" class="nav-link text-white hover:text-gold-500 font-semibold transition-all duration-300 uppercase tracking-wide text-sm">Impact</a>
+                    <a href="volunteer.html" class="nav-link text-white hover:text-gold-500 font-semibold transition-all duration-300 uppercase tracking-wide text-sm">Volunteer</a>
+                    <a href="contact.html" class="btn-gold">
+                        Get Help
+                    </a>
+                </div>
+                
+                <button class="lg:hidden p-4 bg-navy-950 text-gold-500 gold-border-rounded" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="lg:hidden hidden glass-dark" id="mobile-menu">
+            <div class="px-6 py-10 space-y-8">
+                <a href="index.html" class="block py-4 text-white hover:text-gold-300 font-semibold text-xl transition-colors">Home</a>
+                <a href="about.html" class="block py-4 text-white hover:text-gold-300 font-semibold text-xl transition-colors">About</a>
+                <a href="how-we-help.html" class="block py-4 text-gold-300 font-semibold text-xl transition-colors">How We Help</a>
+                <a href="impact.html" class="block py-4 text-white hover:text-gold-300 font-semibold text-xl transition-colors">Impact</a>
+                <a href="volunteer.html" class="block py-4 text-white hover:text-gold-300 font-semibold text-xl transition-colors">Volunteer</a>
+                <a href="contact.html" class="block py-4 text-gold-300 font-bold text-xl">Get Help</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 bg-gradient-to-br from-navy-950 to-navy-800 pattern-bg">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center reveal">
+                <div class="inline-flex items-center px-6 py-3 rounded-full bg-gold-950/30 text-gold-400 font-semibold mb-8 gold-border-rounded font-sans">
+                    <i class="fas fa-hands-helping mr-3"></i>
+                    Direct Aid & Support
+                </div>
+                <h1 class="text-5xl md:text-7xl font-display font-black text-white mb-8 leading-tight gold-text-shadow">
+                    How HAQQ <span class="text-gradient-gold">Helps</span>
+                </h1>
+                <p class="text-2xl text-gold-200 max-w-4xl mx-auto leading-relaxed mb-12 font-sans">
+                    We provide immediate, direct assistance to Lebanese families in crisis. 
+                    No bureaucracy, no delays, no hidden agendas - just real help when you need it most.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <a href="#emergency-help" class="btn-gold text-xl inline-flex items-center">
+                        <i class="fas fa-phone mr-4"></i>
+                        Get Emergency Help
+                    </a>
+                    <a href="#how-it-works" class="btn-outline text-xl inline-flex items-center">
+                        <i class="fas fa-info-circle mr-4"></i>
+                        How It Works
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Types of Aid We Provide -->
+    <section class="section-padding bg-navy-950">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-4xl md:text-6xl font-display font-black text-white mb-8 gold-text-shadow">
+                    Types of <span class="text-gradient-gold">Aid</span> We Provide
+                </h2>
+                <p class="text-xl text-gold-200 max-w-3xl mx-auto font-sans">
+                    From emergency food packages to educational support, we cover the essential needs of Lebanese families.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Emergency Food Packages -->
+                <div class="aid-card p-8 reveal stagger-1">
+                    <div class="text-center">
+                        <div class="w-20 h-20 icon-circle rounded-full flex items-center justify-center mx-auto mb-6 float-animation">
+                            <i class="fas fa-shopping-basket text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-display font-bold text-gold-400 mb-4">Emergency Food Packages</h3>
+                        <p class="text-gray-300 mb-6 leading-relaxed font-sans">
+                            Complete food boxes with rice, oil, canned goods, bread, and essential groceries delivered directly to your door.
+                        </p>
+                        <div class="bg-gold-950/30 p-4 rounded-xl mb-4 gold-border-rounded">
+                            <p class="font-bold text-gold-400 font-sans">$50 feeds a family for a week</p>
+                        </div>
+                        <ul class="text-sm text-gray-400 space-y-2 text-left font-sans">
+                            <li><i class="fas fa-check list-item-check mr-2"></i>Rice, pasta, and grains</li>
+                            <li><i class="fas fa-check list-item-check mr-2"></i>Canned vegetables and proteins</li>
+                            <li><i class="fas fa-check list-item-check mr-2"></i>Cooking oil and spices</li>
+                            <li><i class="fas fa-check list-item-check mr-2"></i>Fresh bread when possible</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Direct Cash Aid -->
+                <div class="aid-card p-8 reveal stagger-2">
+                    <div class="text-center">
+                        <div class="w-20 h-20 icon-circle rounded-full flex items-center justify-center mx-auto mb-6 float-animation" style="animation-delay: 0.2s;">
+                            <i class="fas fa-hand-holding-usd text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-display font-bold text-gold-400 mb-4">Direct Cash Aid</h3>
+                        <p class="text-gray-300 mb-6 leading-relaxed font-sans">
+                            Emergency cash assistance for urgent needs like medicine, rent, utilities, or unexpected expenses.
+                        </p>
+                        <div class="bg-gold-950/30 p-4 rounded-xl mb-4 gold-border-rounded">
+                            <p class="font-bold text-gold-400 font-sans">Available through OMT & direct transfer</p>
+                        </div>
+                        <ul class="text-sm text-gray-400 space-y-2 text-left font-sans">
+                            <li><i class="fas fa-check list-item-check mr-2"></i>Medical emergencies</li>
+                            <li><i class="fas fa-check list-item-check mr-2"></i>Rent and utility payments</li>
+                            <li><i class="fas fa-check list-item-check mr-2"></i>Transportation costs</li>
+                            <li><i class="fas fa-check list-item-check mr-2"></i>Emergency repairs</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- School Supplies -->
+                <div class="aid-card p-8 reveal stagger-3">
+                    <div class="text-center">
+                        <div class="w-20 h-20 icon-circle rounded-full flex items-center justify-center mx-auto mb-6 float-animation" style="animation-delay: 0.4s;">
+                            <i class="fas fa-backpack text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-display font-bold text-gold-400 mb-4">School Supplies</h3>
+                        <p class="text-gray-300 mb-6 leading-relaxed font-sans">
+                            Complete school kits for students including notebooks, pens, books, backpacks, and uniforms.
+                        </p>
+                        <div class="bg-gold-950/30 p-4 rounded-xl mb-4 gold-border-rounded">
+                            <p class="font-bold text-gold-400 font-sans">Focus on Southern Lebanon</p>
+                        </div>
+                        <ul class="text-sm text-gray-400 space-y-2 text-left font-sans">
+                            <li><i class="fas fa-check list-item-check mr-2"></i>Notebooks and stationery</li>
+                            <li><i class="fas fa-check list-item-check mr-2"></i>Textbooks and workbooks</li>
+                            <li><i class="fas fa-check list-item-check mr-2"></i>School bags and uniforms</li>
+                            <li><i class="fas fa-check list-item-check mr-2"></i>Art and science supplies</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Medical Aid -->
+                <div class="aid-card p-8 reveal stagger-4">
+                    <div class="text-center">
+                        <div class="w-20 h-20 icon-circle rounded-full flex items-center justify-center mx-auto mb-6 float-animation" style="animation-delay: 0.6s;">
+                            <i class="fas fa-pills text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-display font-bold text-gold-400 mb-4">Medical Aid</h3>
+                        <p class="text-gray-300 mb-6 leading-relaxed font-sans">
+                            Essential medications, medical supplies, and healthcare support for chronic conditions and emergencies.
+                        </p>
+                        <div class="bg-gold-950/30 p-4 rounded-xl mb-4 gold-border-rounded">
+                            <p class="font-bold text-gold-400 font-sans">Priority for elderly & chronic patients</p>
+                        </div>
+                        <ul class="text-sm text-gray-400 space-y-2 text-left font-sans">
+                            <li><i class="fas fa-check list-item-check mr-2"></i>Prescription medications</li>
+                            <li><i class="fas fa-check list-item-check mr-2"></i>First aid supplies</li>
+                            <li><i class="fas fa-check list-item-check mr-2"></i>Medical equipment</li>
+                            <li><i class="fas fa-check list-item-check mr-2"></i>Doctor visit assistance</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Emergency Shelter -->
+                <div class="aid-card p-8 reveal stagger-5">
+                    <div class="text-center">
+                        <div class="w-20 h-20 icon-circle rounded-full flex items-center justify-center mx-auto mb-6 float-animation" style="animation-delay: 0.8s;">
+                            <i class="fas fa-home text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-display font-bold text-gold-400 mb-4">Emergency Shelter</h3>
+                        <p class="text-gray-300 mb-6 leading-relaxed font-sans">
+                            Temporary housing, blankets, mattresses, and basic furniture for displaced families.
+                        </p>
+                        <div class="bg-gold-950/30 p-4 rounded-xl mb-4 gold-border-rounded">
+                            <p class="font-bold text-gold-400 font-sans">For war-affected families</p>
+                        </div>
+                        <ul class="text-sm text-gray-400 space-y-2 text-left font-sans">
+                            <li><i class="fas fa-check list-item-check mr-2"></i>Temporary accommodation</li>
+                            <li><i class="fas fa-check list-item-check mr-2"></i>Bedding and blankets</li>
+                            <li><i class="fas fa-check list-item-check mr-2"></i>Basic furniture</li>
+                            <li><i class="fas fa-check list-item-check mr-2"></i>Heating assistance</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Hygiene & Dignity Kits -->
+                <div class="aid-card p-8 reveal stagger-6">
+                    <div class="text-center">
+                        <div class="w-20 h-20 icon-circle rounded-full flex items-center justify-center mx-auto mb-6 float-animation" style="animation-delay: 1s;">
+                            <i class="fas fa-soap text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-display font-bold text-gold-400 mb-4">Hygiene & Dignity Kits</h3>
+                        <p class="text-gray-300 mb-6 leading-relaxed font-sans">
+                            Personal hygiene items including soap, shampoo, toothpaste, and feminine products.
+                        </p>
+                        <div class="bg-gold-950/30 p-4 rounded-xl mb-4 gold-border-rounded">
+                            <p class="font-bold text-gold-400 font-sans">Essential for displaced families</p>
+                        </div>
+                        <ul class="text-sm text-gray-400 space-y-2 text-left font-sans">
+                            <li><i class="fas fa-check list-item-check mr-2"></i>Personal hygiene items</li>
+                            <li><i class="fas fa-check list-item-check mr-2"></i>Feminine hygiene products</li>
+                            <li><i class="fas fa-check list-item-check mr-2"></i>Baby care supplies</li>
+                            <li><i class="fas fa-check list-item-check mr-2"></i>Cleaning supplies</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="section-padding bg-navy-900">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-4xl md:text-6xl font-display font-black text-white mb-8 gold-text-shadow">
+                    How It <span class="text-gradient-gold">Works</span>
+                </h2>
+                <p class="text-xl text-gold-200 max-w-3xl mx-auto font-sans">
+                    Our process is simple, direct, and transparent. No bureaucracy, no delays, no complicated forms.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="process-step p-8 text-center reveal stagger-1">
+                    <div class="step-number">1</div>
+                    <h3 class="text-xl font-display font-bold text-gold-400 mb-4">Contact Us</h3>
+                    <p class="text-gray-300 leading-relaxed font-sans">
+                        Message us on WhatsApp with your need or situation. Available 24/7 for emergencies.
+                    </p>
+                </div>
+                
+                <div class="process-step p-8 text-center reveal stagger-2">
+                    <div class="step-number">2</div>
+                    <h3 class="text-xl font-display font-bold text-gold-400 mb-4">Quick Assessment</h3>
+                    <p class="text-gray-300 leading-relaxed font-sans">
+                        We assess your situation and determine the best way to help within hours, not days.
+                    </p>
+                </div>
+                
+                <div class="process-step p-8 text-center reveal stagger-3">
+                    <div class="step-number">3</div>
+                    <h3 class="text-xl font-display font-bold text-gold-400 mb-4">Immediate Action</h3>
+                    <p class="text-gray-300 leading-relaxed font-sans">
+                        We provide aid within 24-48 hours of contact. Emergency cases get priority.
+                    </p>
+                </div>
+                
+                <div class="process-step p-8 text-center reveal stagger-4">
+                    <div class="step-number">4</div>
+                    <h3 class="text-xl font-display font-bold text-gold-400 mb-4">Follow Up</h3>
+                    <p class="text-gray-300 leading-relaxed font-sans">
+                        We check in to ensure you're getting the support you need and offer ongoing assistance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Promise & Transparency -->
+    <section class="section-padding bg-navy-950">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl md:text-6xl font-display font-black text-white mb-8 gold-text-shadow">
+                    Our <span class="text-gradient-gold">Promise</span>
+                </h2>
+                <p class="text-xl text-gold-200 max-w-3xl mx-auto font-sans">
+                    When you support HAQQ, you know exactly where your money goes and how it helps.
+                </p>
+            </div>
+            
+            <div class="luxury-card p-16 text-center reveal">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div>
+                        <div class="text-6xl stats-counter text-gold-400 mb-4" data-target="100">0%</div>
+                        <p class="text-gray-300 text-xl font-semibold font-sans">of donations go directly to families</p>
+                        <p class="text-gray-400 mt-2 font-sans">Zero administrative costs</p>
+                    </div>
+                    <div>
+                        <div class="text-6xl stats-counter text-lebanon-green mb-4" data-target="0">$0</div>
+                        <p class="text-gray-300 text-xl font-semibold font-sans">salaries or overhead expenses</p>
+                        <p class="text-gray-400 mt-2 font-sans">Pure volunteer work</p>
+                    </div>
+                    <div>
+                        <div class="text-6xl stats-counter text-blue-400 mb-4" data-target="24">0h</div>
+                        <p class="text-gray-300 text-xl font-semibold font-sans">maximum response time</p>
+                        <p class="text-gray-400 mt-2 font-sans">Usually much faster</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Contact Section -->
+    <section id="emergency-help" class="section-padding bg-gradient-to-br from-red-600 to-red-800">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center reveal">
+            <div class="mb-12">
+                <i class="fas fa-exclamation-triangle text-6xl mb-6 text-white"></i>
+                <h2 class="text-4xl md:text-5xl font-display font-black mb-6 text-white">
+                    Emergency? Don't Wait!
+                </h2>
+                <p class="text-xl max-w-3xl mx-auto leading-relaxed mb-8 text-red-100 font-sans">
+                    If you're in immediate need of food, shelter, medical aid, or emergency assistance, 
+                    contact us right now. We prioritize emergency cases and respond immediately.
+                </p>
+            </div>
+            
+            <div class="bg-white/20 backdrop-blur-sm p-10 rounded-3xl max-w-2xl mx-auto gold-border-rounded">
+                <h3 class="text-2xl font-display font-bold mb-6 text-white">Emergency Contact Protocol</h3>
+                <div class="space-y-4 text-left font-sans">
+                    <div class="flex items-start">
+                        <span class="bg-white text-red-600 rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 mt-1">1</span>
+                        <p class="text-white">Message us on WhatsApp with "EMERGENCY" as the first word</p>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="bg-white text-red-600 rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 mt-1">2</span>
+                        <p class="text-white">Briefly describe your immediate need (food, shelter, medical, etc.)</p>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="bg-white text-red-600 rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 mt-1">3</span>
+                        <p class="text-white">We will respond within minutes and arrange immediate assistance</p>
+                    </div>
+                </div>
+                
+                <div class="mt-8">
+                    <a href="https://wa.me/96170123456" class="bg-white text-red-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg inline-flex items-center">
+                        <i class="fab fa-whatsapp mr-3 text-xl"></i>
+                        Emergency Contact
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who We Help -->
+    <section class="section-padding bg-navy-900">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-4xl md:text-6xl font-display font-black text-white mb-8 gold-text-shadow">
+                    Who We <span class="text-gradient-gold">Help</span>
+                </h2>
+                <p class="text-xl text-gold-200 max-w-3xl mx-auto font-sans">
+                    HAQQ is here for all Lebanese people in need, regardless of background, religion, or location.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="aid-card p-8 text-center reveal stagger-1">
+                    <div class="w-20 h-20 icon-circle rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-users text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-gold-400 mb-4">Families in Crisis</h3>
+                    <p class="text-gray-300 font-sans">Families facing financial hardship, job loss, or unexpected emergencies</p>
+                </div>
+                
+                <div class="aid-card p-8 text-center reveal stagger-2">
+                    <div class="w-20 h-20 icon-circle rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-home text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-gold-400 mb-4">Displaced Families</h3>
+                    <p class="text-gray-300 font-sans">Families displaced by conflict, especially from Southern Lebanon</p>
+                </div>
+                
+                <div class="aid-card p-8 text-center reveal stagger-3">
+                    <div class="w-20 h-20 icon-circle rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-graduation-cap text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-gold-400 mb-4">Students</h3>
+                    <p class="text-gray-300 font-sans">Children and young adults who need educational support and supplies</p>
+                </div>
+                
+                <div class="aid-card p-8 text-center reveal stagger-4">
+                    <div class="w-20 h-20 icon-circle rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-heartbeat text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-gold-400 mb-4">Elderly & Vulnerable</h3>
+                    <p class="text-gray-300 font-sans">Elderly people and those with chronic conditions needing medical aid</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section-padding bg-gradient-to-br from-gold-600 to-gold-800 text-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center reveal">
+            <h2 class="text-4xl md:text-6xl font-display font-black mb-8 text-navy-950">
+                Ready to Get Help or Give Help?
+            </h2>
+            <p class="text-xl mb-12 max-w-3xl mx-auto leading-relaxed text-navy-800 font-sans">
+                Whether you need assistance or want to support others, HAQQ is here. 
+                Contact us directly for immediate, transparent, and effective help.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="https://wa.me/96170123456" class="bg-navy-950 text-gold-400 px-8 py-4 rounded-full font-bold text-lg hover:bg-navy-900 transition-all duration-300 shadow-2xl inline-flex items-center">
+                    <i class="fab fa-whatsapp mr-3"></i>
+                    Get Help Now
+                </a>
+                <a href="volunteer.html" class="bg-transparent border-2 border-navy-950 text-navy-950 px-8 py-4 rounded-full font-bold text-lg hover:bg-navy-950 hover:text-gold-400 transition-all duration-300 inline-flex items-center">
+                    <i class="fas fa-heart mr-3"></i>
+                    Help Others
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-950 text-white py-20">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-8">
+                        <a href="index.html" class="logo-container mr-6">
+                            <img src="logo7aq.png" alt="HAQQ Logo" class="w-20 h-20 object-contain logo-shadow" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0iI2Q0YTAxNyIvPgo8dGV4dCB4PSI0MCIgeT0iNDUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiMwNTA4MjEiIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0iY2VudHJhbCI+2K3ZgtmCPC90ZXh0Pgo8L2N2Zz4K'">
+                        </a>
+                        <div>
+                            <h3 class="text-3xl font-display font-bold">HAQQ</h3>
+                            <p class="text-gold-400 arabic-text text-lg font-semibold">حركة حَقّ</p>
+                        </div>
+                    </div>
+                    <p class="text-gold-200 text-xl leading-relaxed mb-8 font-display">
+                        We just want to help Lebanese people in need. This is our purpose for existence.
+                    </p>
+                    <p class="text-gold-300 arabic-text text-lg font-medium">
+                        نحن فقط نريد أن نساعد الناس المحتاجين
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-display font-bold mb-6 text-gold-400">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gold-200 hover:text-white transition-colors text-lg font-medium">Home</a></li>
+                        <li><a href="about.html" class="text-gold-200 hover:text-white transition-colors text-lg font-medium">About</a></li>
+                        <li><a href="impact.html" class="text-gold-200 hover:text-white transition-colors text-lg font-medium">Our Impact</a></li>
+                        <li><a href="volunteer.html" class="text-gold-200 hover:text-white transition-colors text-lg font-medium">Volunteer</a></li>
+                        <li><a href="founder.html" class="text-gold-200 hover:text-white transition-colors text-lg font-medium">Our Founder</a></li>
+                        <li><a href="contact.html" class="text-gold-200 hover:text-white transition-colors text-lg font-medium">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-display font-bold mb-6 text-gold-400">Emergency Contact</h4>
+                    <div class="space-y-3">
+                        <p class="text-gold-200 text-lg">WhatsApp Only</p>
+                        <p class="text-gold-200 text-lg">Direct & Transparent</p>
+                        <p class="text-gold-200 text-lg">24/7 for Emergencies</p>
+                        <a href="https://wa.me/96170123456" class="inline-flex items-center text-gold-500 hover:text-gold-300 transition-colors mt-6 text-lg font-semibold">
+                            <i class="fab fa-whatsapp mr-3 text-xl"></i>
+                            Message Us Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gold-600/30 pt-10 text-center">
+                <p class="text-gold-300 mb-3 text-lg">
+                    &copy; 2025 HAQQ. Founded by Alexandro Ghanem (ألكسندرو غانم)
+                </p>
+                <p class="text-gold-400 text-lg">
+                    <i class="fas fa-heart text-red-500 mr-3"></i>
+                    This is our purpose for existence
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('glass-dark');
+                navbar.classList.add('shadow-2xl');
+            } else {
+                navbar.classList.remove('glass-dark');
+                navbar.classList.remove('shadow-2xl');
+            }
+        });
+
+        // Intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Counter animation
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            const duration = 2000;
+            let start = 0;
+            let startTime = null;
+
+            function easeOutQuad(t) {
+                return t * (2 - t);
+            }
+
+            function animate(currentTime) {
+                if (!startTime) startTime = currentTime;
+                const progress = (currentTime - startTime) / duration;
+                const easedProgress = easeOutQuad(progress);
+
+                const current = Math.floor(easedProgress * target);
+                
+                if (element.textContent.includes('%')) {
+                    element.textContent = current + '%';
+                } else if (element.textContent.includes('$')) {
+                    element.textContent = '$' + current;
+                } else if (element.textContent.includes('h')) {
+                    element.textContent = current + 'h';
+                } else {
+                    element.textContent = current;
+                }
+
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    if (element.textContent.includes('%')) {
+                        element.textContent = target + '%';
+                    } else if (element.textContent.includes('$')) {
+                        element.textContent = '$' + target;
+                    } else if (element.textContent.includes('h')) {
+                        element.textContent = target + 'h';
+                    } else {
+                        element.textContent = target;
+                    }
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        document.querySelectorAll('.stats-counter').forEach(counter => {
+            counterObserver.observe(counter);
+        });
+
+        // Loading animation
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelectorAll('.reveal').forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('active');
+                    }, index * 100);
+                });
+            }, 300);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

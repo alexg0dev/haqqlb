@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About HAQQ - حركة حَقّ | Our Mission</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    'haqq': {
+                        50: '#fef7ee',
+                        100: '#fdedd3',
+                        200: '#fbd7a5',
+                        300: '#f8bc6d',
+                        400: '#f59e42',
+                        500: '#f97316',
+                        600: '#ea580c',
+                        700: '#c2410c',
+                        800: '#9a3412',
+                        900: '#7c2d12',
+                    },
+                    'lebanon': {
+                        red: '#DC2626',
+                        green: '#059669',
+                        white: '#FFFFFF'
+                    },
+                    'navy': {
+                        50: '#f0f5ff',
+                        100: '#e0eaff',
+                        200: '#c7d9ff',
+                        300: '#a3bdff',
+                        400: '#7a97ff',
+                        500: '#5b70fc',
+                        600: '#3f4cf1',
+                        700: '#2f3ad1',
+                        800: '#0f1b4d',
+                        900: '#0a1033',
+                        950: '#050821',
+                    },
+                    'gold': {
+                        50: '#fefbe8',
+                        100: '#fff8c2',
+                        200: '#ffee89',
+                        300: '#ffde44',
+                        400: '#ffcf1b',
+                        500: '#d4a017',
+                        600: '#b78210',
+                        700: '#95650c',
+                        800: '#7a5210',
+                        900: '#644212',
+                        950: '#3a2409',
+                    },
+                },
+                fontFamily: {
+                    'display': ['Cormorant Garamond', 'serif'],
+                    'sans': ['Montserrat', 'sans-serif'],
+                    'arabic': ['Amiri', 'serif'],
+                },
+                animation: {
+                    'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    'gradient-shift': 'gradientShift 10s ease infinite',
+                },
+                keyframes: {
+                    gradientShift: {
+                        '0%, 100%': { 'background-position': '0% 50%' },
+                        '50%': { 'background-position': '100% 50%' }
+                    }
+                }
+            }
+        }
+    }
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+    .glass {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .glass-dark {
+        background: rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .text-gradient {
+        background: linear-gradient(135deg, #f97316, #dc2626);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .text-gradient-gold {
+        background: linear-gradient(135deg, #d4a017, #b78210);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .hover-lift {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .hover-lift:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.25);
+    }
+    
+    .reveal {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+    .stagger-4 { transition-delay: 0.4s; }
+    .stagger-5 { transition-delay: 0.5s; }
+    .stagger-6 { transition-delay: 0.6s; }
+    
+    .arabic-text {
+        font-family: 'Amiri', serif;
+        direction: rtl;
+    }
+    
+    .btn-primary {
+        background: linear-gradient(135deg, #f97316, #ea580c);
+        border: none;
+        color: white;
+        font-weight: 600;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 30px rgba(249, 115, 22, 0.3);
+    }
+    
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 20px 40px rgba(249, 115, 22, 0.4);
+    }
+    
+    .section-padding {
+        padding: 8rem 0;
+    }
+    
+    @media (max-width: 768px) {
+        .section-padding {
+            padding: 5rem 0;
+        }
+    }
+
+    .gold-border-rounded {
+        border: 2px solid #d4a017;
+        border-radius: 24px;
+    }
+
+    .gold-text-shadow {
+        text-shadow: 0 0 10px rgba(212, 160, 23, 0.5);
+    }
+
+    .logo-shadow {
+        filter: drop-shadow(0 0 15px rgba(212, 160, 23, 0.6));
+    }
+
+    .hover-scale {
+        transition: transform 0.3s ease;
+    }
+
+    .hover-scale:hover {
+        transform: scale(1.05);
+    }
+
+    .nav-link {
+        position: relative;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+        background: rgba(212, 160, 23, 0.1);
+    }
+
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: #d4a017;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+    }
+
+    .nav-link:hover::after {
+        width: 80%;
+    }
+
+    .btn-gold {
+        background: #d4a017;
+        border: none;
+        color: #050821;
+        font-weight: 700;
+        padding: 1.25rem 2.5rem;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border-radius: 50px;
+    }
+
+    .btn-gold:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(212, 160, 23, 0.4);
+        background: #b78210;
+    }
+
+    .btn-gold::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.6s;
+    }
+
+    .btn-gold:hover::before {
+        left: 100%;
+    }
+
+    .btn-outline {
+        background: transparent;
+        border: 2px solid #d4a017;
+        color: #d4a017;
+        font-weight: 700;
+        padding: 1.25rem 2.5rem;
+        transition: all 0.4s ease;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border-radius: 50px;
+    }
+
+    .btn-outline:hover {
+        background: rgba(212, 160, 23, 0.1);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(212, 160, 23, 0.3);
+    }
+
+    .luxury-card {
+        background: #0a1033;
+        border: 1px solid #d4a017;
+        box-shadow: 0 20px 40px rgba(5, 8, 33, 0.4);
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+        border-radius: 24px;
+    }
+
+    .luxury-card::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, #d4a017, #b78210);
+    }
+
+    .luxury-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 30px 60px rgba(5, 8, 33, 0.5);
+    }
+
+    .gold-gradient-bg {
+        background: linear-gradient(135deg, rgba(212, 160, 23, 0.1), rgba(183, 130, 16, 0.05));
+    }
+
+    .quote-mark {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 120px;
+        line-height: 0;
+        color: rgba(212, 160, 23, 0.2);
+        position: absolute;
+        top: 40px;
+        left: 30px;
+    }
+
+    /* Core Principles Card - NEW DESIGN */
+    .principle-card {
+        background: #fff; /* White background */
+        border: 2px solid #d4a017; /* Strong gold border */
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Clearer shadow */
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 24px;
+        color: #0a1033; /* Dark text for contrast */
+    }
+    .hover-principle-lift:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px rgba(212, 160, 23, 0.3); /* More pronounced gold shadow on hover */
+    }
+    .principle-card .icon-bg {
+        background: linear-gradient(135deg, #d4a017, #b78210); /* Gold gradient for icon background */
+        box-shadow: 0 5px 15px rgba(212, 160, 23, 0.4);
+    }
+    .principle-card h3 {
+        color: #d4a017; /* Gold text for titles */
+    }
+    .principle-card p {
+        color: #3a2409; /* Darker text for body */
+    }
+
+
+    /* Problems We Solve Card */
+    .problem-card {
+        background: rgba(220, 38, 38, 0.1); /* red-600/10 */
+        border: 1px solid rgba(220, 38, 38, 0.5); /* red-600/50 */
+        box-shadow: 0 10px 20px rgba(220, 38, 38, 0.1); /* subtle red shadow */
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 24px;
+    }
+    .hover-problem-lift:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(220, 38, 38, 0.2);
+    }
+
+    /* What HAQQ Will Do Card */
+    .action-card {
+        background: #0f1b4d; /* navy-800 */
+        border-left: 4px solid #d4a017; /* gold-500 left border */
+        box-shadow: 0 10px 20px rgba(212, 160, 23, 0.1); /* subtle gold shadow */
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 24px;
+    }
+    .hover-action-lift:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(212, 160, 23, 0.2);
+    }
+
+    /* How You Can Make a Difference (Other Ways) Card */
+    .difference-card {
+        background: #0f1b4d; /* navy-800 */
+        border: 1px solid rgba(5, 150, 105, 0.5); /* lebanon-green/50 */
+        box-shadow: 0 10px 20px rgba(5, 150, 105, 0.1); /* subtle green shadow */
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 24px;
+    }
+    .hover-difference-lift:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(5, 150, 105, 0.2);
+    }
+
+    /* Why You Can Trust HAQQ Card */
+    .trust-card {
+        background: #0f1b4d; /* navy-800 */
+        border: 1px solid rgba(212, 160, 23, 0.3); /* gold-500/30 */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 24px;
+    }
+    .hover-trust-lift:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(212, 160, 23, 0.15);
+    }
+
+    /* Introduction Section specific background */
+    .intro-bg-pattern {
+        background-image: radial-gradient(circle, rgba(212, 160, 23, 0.05) 1px, transparent 1px);
+        background-size: 30px 30px;
+    }
+
+    /* Launching Section specific background */
+    .launch-bg-gradient {
+        background: linear-gradient(135deg, #0a1033, #0f1b4d);
+        background-size: 200% 200%;
+        animation: gradient-shift 10s ease infinite;
+    }
+</style>
+</head>
+<body class="font-sans antialiased bg-navy-950 text-white">
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 transition-all duration-500" id="navbar">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="flex justify-between items-center py-6">
+            <div class="flex items-center space-x-6">
+                <a href="index.html" class="logo-container">
+                    <img src="logo7aq.png" alt="HAQQ Logo" class="w-20 h-20 object-contain logo-shadow hover-scale" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIiByeD0iMTAiIGZpbGw9IiNkNGEwMTciLz4KPHRleHQgeD0iNDAiIHk9IjQ1IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjMDUwODIxIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0iY2VudHJhbCI+2K3ZgtmCPC90ZXh0Pgo8L3N2Zz4K'">
+                </a>
+                <div class="ml-4">
+                    <h1 class="text-3xl font-display font-bold text-white gold-text-shadow">HAQQ</h1>
+                    <p class="text-gold-500 arabic-text font-semibold text-lg">حركة حَقّ</p>
+                </div>
+            </div>
+            
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="index.html" class="nav-link text-white hover:text-gold-500 font-semibold transition-all duration-300 uppercase tracking-wide text-sm">Home</a>
+                <a href="about.html" class="nav-link text-gold-500 hover:text-gold-500 font-semibold transition-all duration-300 uppercase tracking-wide text-sm">About</a>
+                <a href="help.html" class="nav-link text-white hover:text-gold-500 font-semibold transition-all duration-300 uppercase tracking-wide text-sm">How We Help</a>
+                <a href="impact.html" class="nav-link text-white hover:text-gold-500 font-semibold transition-all duration-300 uppercase tracking-wide text-sm">Impact</a>
+                <a href="volunteer.html" class="nav-link text-white hover:text-gold-500 font-semibold transition-all duration-300 uppercase tracking-wide text-sm">Volunteer</a>
+                <a href="contact.html" class="btn-gold">
+                    Get Help
+                </a>
+            </div>
+            
+            <button class="lg:hidden p-4 bg-navy-950 text-gold-500 gold-border-rounded" id="mobile-menu-btn">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="lg:hidden hidden glass-dark" id="mobile-menu">
+        <div class="px-6 py-10 space-y-8">
+            <a href="index.html" class="block py-4 text-white hover:text-gold-300 font-semibold text-xl transition-colors">Home</a>
+            <a href="about.html" class="block py-4 text-gold-300 font-semibold text-xl transition-colors">About</a>
+            <a href="help.html" class="block py-4 text-white hover:text-gold-300 font-semibold text-xl transition-colors">How We Help</a>
+            <a href="impact.html" class="block py-4 text-white hover:text-gold-300 font-semibold text-xl transition-colors">Impact</a>
+            <a href="volunteer.html" class="block py-4 text-white hover:text-gold-300 font-semibold text-xl transition-colors">Volunteer</a>
+            <a href="contact.html" class="block py-4 text-gold-300 font-bold text-xl">Get Help</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="pt-32 pb-20 bg-gradient-to-br from-navy-950 to-navy-800">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center reveal">
+            <div class="inline-flex items-center px-6 py-3 rounded-full bg-gold-950/30 text-gold-400 font-semibold mb-8 gold-border-rounded">
+                <i class="fas fa-flag-checkered mr-3"></i>
+                HAQQ Movement
+            </div>
+            <h1 class="text-5xl md:text-7xl font-display font-black text-white mb-8 leading-tight gold-text-shadow">
+                HAQQ: What We <span class="text-gradient-gold">Stand For</span>
+            </h1>
+            <p class="text-2xl text-gold-200 max-w-4xl mx-auto leading-relaxed arabic-text">
+                حركة حَقّ — من الناس، للناس، من أجل لبنان.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Introduction: What is HAQQ? -->
+<section class="section-padding bg-navy-950 intro-bg-pattern">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto text-center reveal">
+            <h2 class="text-4xl md:text-6xl font-display font-black text-white mb-8 gold-text-shadow">
+                What is <span class="text-gradient-gold">HAQQ</span>?
+            </h2>
+            <p class="text-xl text-gold-200 max-w-3xl mx-auto mb-12">
+                HAQQ (حَقّ) is a national Lebanese movement founded to bring dignity, truth, and justice back to our people.
+            </p>
+            
+            <div class="luxury-card p-10 reveal">
+                <div class="space-y-6 text-lg text-gray-300 leading-relaxed">
+                    <p>
+                        We are not a political party. We are not another failed promise. We are a group of people — young and old — who are tired of waiting for someone else to fix our country.
+                    </p>
+                    <p>
+                        We believe in action. We believe in truth. And we believe that Lebanon still belongs to its people — not to corruption, not to militias, and not to foreign agendas.
+                    </p>
+                </div>
+                <div class="mt-12 text-gold-400 font-semibold text-xl">
+                    <p>Founded and led by: ألكسندرو غانم</p>
+                    <p>Official launch: 30 حزيران 2025 (June 30, 2025)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Core Principles: What We Stand For -->
+<section class="section-padding bg-gradient-to-br from-navy-950 to-navy-900 relative overflow-hidden">
+    <!-- Background pattern -->
+    <div class="absolute inset-0 opacity-5">
+        <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23d4a017\' fill-opacity=\'0.4\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16 reveal">
+            <h2 class="text-4xl md:text-6xl font-display font-black text-white mb-8 gold-text-shadow">
+                Our Core <span class="text-gradient-gold">Principles</span>
+            </h2>
+            <p class="text-xl text-gold-200 max-w-3xl mx-auto">
+                These values guide every action we take and every decision we make.
+            </p>
+        </div>
+        
+        <!-- Horizontal principle items with alternating layout -->
+        <div class="space-y-16">
+            <!-- Justice -->
+            <div class="flex flex-col md:flex-row items-center reveal stagger-1">
+                <div class="md:w-1/3 mb-8 md:mb-0">
+                    <div class="w-32 h-32 mx-auto bg-gradient-to-br from-gold-400 to-gold-600 rounded-full flex items-center justify-center transform rotate-12 shadow-xl shadow-gold-500/20">
+                        <i class="fas fa-balance-scale text-white text-5xl transform -rotate-12"></i>
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <div class="bg-gradient-to-r from-gold-500/20 to-transparent p-8 rounded-l-full">
+                        <h3 class="text-3xl font-display font-bold text-gold-400 mb-4">Justice (العدالة)</h3>
+                        <p class="text-xl text-gray-300 leading-relaxed">
+                            Justice means more than courts — it means equal electricity, clean water, safe schools, and real accountability. We believe everyone deserves to live in dignity, not just survive.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Peace -->
+            <div class="flex flex-col md:flex-row-reverse items-center reveal stagger-2">
+                <div class="md:w-1/3 mb-8 md:mb-0">
+                    <div class="w-32 h-32 mx-auto bg-gradient-to-br from-lebanon-green to-emerald-400 rounded-full flex items-center justify-center transform -rotate-12 shadow-xl shadow-lebanon-green/20">
+                        <i class="fas fa-dove text-white text-5xl transform rotate-12"></i>
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pr-12">
+                    <div class="bg-gradient-to-l from-lebanon-green/20 to-transparent p-8 rounded-r-full">
+                        <h3 class="text-3xl font-display font-bold text-lebanon-green mb-4">Peace (السلام)</h3>
+                        <p class="text-xl text-gray-300 leading-relaxed">
+                            We are tired of hearing bombs while our youth want peace. We don't want to be dragged into foreign wars. If we wanted to fight, we'd all join the army — but we want life, not death.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- National Sovereignty -->
+            <div class="flex flex-col md:flex-row items-center reveal stagger-3">
+                <div class="md:w-1/3 mb-8 md:mb-0">
+                    <div class="w-32 h-32 mx-auto bg-gradient-to-br from-navy-400 to-navy-600 rounded-full flex items-center justify-center transform rotate-12 shadow-xl shadow-navy-500/20">
+                        <i class="fas fa-flag text-white text-5xl transform -rotate-12"></i>
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <div class="bg-gradient-to-r from-navy-500/20 to-transparent p-8 rounded-l-full">
+                        <h3 class="text-3xl font-display font-bold text-navy-400 mb-4">National Sovereignty (السيادة الوطنية)</h3>
+                        <p class="text-xl text-gray-300 leading-relaxed">
+                            We want our entire land back. No excuses. No surrender. Lebanon belongs to its people — not outside forces or occupiers.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Clean Governance -->
+            <div class="flex flex-col md:flex-row-reverse items-center reveal stagger-4">
+                <div class="md:w-1/3 mb-8 md:mb-0">
+                    <div class="w-32 h-32 mx-auto bg-gradient-to-br from-amber-400 to-amber-600 rounded-full flex items-center justify-center transform -rotate-12 shadow-xl shadow-amber-500/20">
+                        <i class="fas fa-hand-holding-usd text-white text-5xl transform rotate-12"></i>
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pr-12">
+                    <div class="bg-gradient-to-l from-amber-500/20 to-transparent p-8 rounded-r-full">
+                        <h3 class="text-3xl font-display font-bold text-amber-400 mb-4">Clean Governance (الحكم النظيف)</h3>
+                        <p class="text-xl text-gray-300 leading-relaxed">
+                            No more moteur scams. No more stolen public money. Every donation HAQQ receives is used honestly — and publicly documented.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Local Empowerment -->
+            <div class="flex flex-col md:flex-row items-center reveal stagger-5">
+                <div class="md:w-1/3 mb-8 md:mb-0">
+                    <div class="w-32 h-32 mx-auto bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center transform rotate-12 shadow-xl shadow-purple-500/20">
+                        <i class="fas fa-hands-helping text-white text-5xl transform -rotate-12"></i>
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <div class="bg-gradient-to-r from-purple-500/20 to-transparent p-8 rounded-l-full">
+                        <h3 class="text-3xl font-display font-bold text-purple-400 mb-4">Local Empowerment (دعم الناس فعليًا)</h3>
+                        <p class="text-xl text-gray-300 leading-relaxed">
+                            The South and neglected towns are full of people who've been forgotten. We will help them — with or without the government.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- The Problems in Lebanon (That HAQQ Exists to Solve) -->
+<section class="section-padding bg-navy-950">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-20 reveal">
+            <h2 class="text-4xl md:text-6xl font-display font-black text-white mb-8 gold-text-shadow">
+                The Problems We <span class="text-red-500">Solve</span>
+            </h2>
+            <p class="text-xl text-gold-200 max-w-3xl mx-auto">
+                HAQQ exists to directly address the most pressing issues facing Lebanon today.
+            </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="problem-card p-10 rounded-3xl hover-problem-lift reveal stagger-1">
+                <div class="w-20 h-20 bg-red-600/20 border border-red-500 rounded-full flex items-center justify-center mx-auto mb-8">
+                    <i class="fas fa-frown-open text-red-400 text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-display font-bold text-red-400 mb-6 text-center">Critical Shortage of Basic Needs</h3>
+                <p class="text-gray-300 text-lg leading-relaxed text-center">
+                    Families across Lebanon face dire scarcity of essential food items, clean drinking water, and life-saving medical supplies.
+                </p>
+            </div>
+            
+            <div class="problem-card p-10 rounded-3xl hover-problem-lift reveal stagger-2">
+                <div class="w-20 h-20 bg-red-600/20 border border-red-500 rounded-full flex items-center justify-center mx-auto mb-8">
+                    <i class="fas fa-school text-red-400 text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-display font-bold text-red-400 mb-6 text-center">Failing Educational Infrastructure</h3>
+                <p class="text-gray-300 text-lg leading-relaxed text-center">
+                    Children are deprived of fundamental school supplies, educational materials, and proper learning environments due to systemic neglect.
+                </p>
+            </div>
+            
+            <div class="problem-card p-10 rounded-3xl hover-problem-lift reveal stagger-3">
+                <div class="w-20 h-20 bg-red-600/20 border border-red-500 rounded-full flex items-center justify-center mx-auto mb-8">
+                    <i class="fas fa-exclamation-triangle text-red-400 text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-display font-bold text-red-400 mb-6 text-center">Systemic Mismanagement & Accountability Crisis</h3>
+                <p class="text-gray-300 text-lg leading-relaxed text-center">
+                    Public resources are diverted or wasted, resulting in deteriorated public services and a profound erosion of trust in governance.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- What HAQQ Will Do -->
+<section class="section-padding bg-navy-900">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-20 reveal">
+            <h2 class="text-4xl md:text-6xl font-display font-black text-white mb-8 gold-text-shadow">
+                What HAQQ <span class="text-gradient-gold">Will Do</span>
+            </h2>
+            <p class="text-xl text-gold-200 max-w-3xl mx-auto">
+                Our direct actions to bring tangible change to Lebanese communities.
+            </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="action-card p-10 rounded-3xl hover-action-lift reveal stagger-1">
+                <div class="w-20 h-20 bg-gold-500/20 border border-gold-500 rounded-full flex items-center justify-center mx-auto mb-8">
+                    <i class="fas fa-shopping-basket text-gold-400 text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-display font-bold text-gold-400 mb-6 text-center">Food & Aid Distribution</h3>
+                <p class="text-gray-300 text-lg leading-relaxed text-center">
+                    Delivering food boxes to families in need — especially war-affected regions.
+                </p>
+            </div>
+            
+            <div class="action-card p-10 rounded-3xl hover-action-lift reveal stagger-2">
+                <div class="w-20 h-20 bg-gold-500/20 border border-gold-500 rounded-full flex items-center justify-center mx-auto mb-8">
+                    <i class="fas fa-book-open text-gold-400 text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-display font-bold text-gold-400 mb-6 text-center">School Supply Drives</h3>
+                <p class="text-gray-300 text-lg leading-relaxed text-center">
+                    Providing full kits to students in southern Lebanon who have nothing.
+                </p>
+            </div>
+            
+            <div class="action-card p-10 rounded-3xl hover-action-lift reveal stagger-3">
+                <div class="w-20 h-20 bg-gold-500/20 border border-gold-500 rounded-full flex items-center justify-center mx-auto mb-8">
+                    <i class="fas fa-hands-wash text-gold-400 text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-display font-bold text-gold-400 mb-6 text-center">Emergency Relief</h3>
+                <p class="text-gray-300 text-lg leading-relaxed text-center">
+                    Giving basic supplies, shelter support, and hygiene items to displaced families.
+                </p>
+            </div>
+
+            <div class="action-card p-10 rounded-3xl hover-action-lift reveal stagger-4">
+                <div class="w-20 h-20 bg-gold-500/20 border border-gold-500 rounded-full flex items-center justify-center mx-auto mb-8">
+                    <i class="fas fa-broom text-gold-400 text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-display font-bold text-gold-400 mb-6 text-center">Clean-Up Campaigns</h3>
+                <p class="text-gray-300 text-lg leading-relaxed text-center">
+                    Street-level campaigns to restore pride in neglected neighborhoods.
+                </p>
+            </div>
+
+            <div class="action-card p-10 rounded-3xl hover-action-lift reveal stagger-5">
+                <div class="w-20 h-20 bg-gold-500/20 border border-gold-500 rounded-full flex items-center justify-center mx-auto mb-8">
+                    <i class="fas fa-hammer text-gold-400 text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-display font-bold text-gold-400 mb-6 text-center">Community Projects</h3>
+                <p class="text-gray-300 text-lg leading-relaxed text-center">
+                    Rebuilding broken areas, one wall, one family, one school at a time.
+                </p>
+            </div>
+        
+            <div class="action-card p-10 rounded-3xl hover-action-lift reveal stagger-6">
+                <div class="w-20 h-20 bg-gold-500/20 border border-gold-500 rounded-full flex items-center justify-center mx-auto mb-8">
+                    <i class="fas fa-gavel text-gold-400 text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-display font-bold text-gold-400 mb-6 text-center">Establishing Transparent Operations</h3>
+                <p class="text-gray-300 text-lg leading-relaxed text-center">
+                    We implement rigorous financial tracking and public reporting for every donation and expenditure, setting a new standard for honest and accountable aid delivery.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How People Can Help -->
+<section class="section-padding bg-navy-950">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-20 reveal">
+            <h2 class="text-4xl md:text-6xl font-display font-black text-white mb-8 gold-text-shadow">
+                How You Can <span class="text-gradient-gold">Make a Difference</span>
+            </h2>
+            <p class="text-xl text-gold-200 max-w-3xl mx-auto">
+                Every action, big or small, contributes to restoring hope and dignity in Lebanon.
+            </p>
+        </div>
+        
+        <!-- Prominent WhatsApp Call to Action -->
+        <div class="luxury-card p-12 max-w-4xl mx-auto text-center mb-20 reveal stagger-1">
+            <i class="fab fa-whatsapp text-lebanon-green text-7xl mb-8"></i>
+            <h3 class="text-3xl font-display font-bold text-gold-400 mb-6">Connect Directly via WhatsApp</h3>
+            <p class="text-gray-300 text-xl leading-relaxed mb-8">
+                Whether you need urgent help, want to donate, or wish to volunteer, our team is available 24/7.
+                No forms, no delays, just direct and transparent communication.
+            </p>
+            <a href="https://wa.me/96170123456" class="btn-gold text-xl inline-flex items-center">
+                <i class="fab fa-whatsapp mr-4"></i>
+                Message HAQQ Now
+            </a>
+            <p class="text-gold-300 mt-6 text-lg">Available 24/7 for emergencies • Usually respond within 5 minutes</p>
+        </div>
+
+        <!-- Other Ways to Make a Difference -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="difference-card p-10 rounded-3xl hover-difference-lift reveal stagger-2">
+                <div class="w-20 h-20 bg-lebanon-green/20 border border-lebanon-green rounded-full flex items-center justify-center mx-auto mb-8">
+                    <i class="fas fa-donate text-lebanon-green text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-display font-bold text-gold-400 mb-6 text-center">Donate Money</h3>
+                <p class="text-gray-300 text-lg leading-relaxed text-center">
+                    Your financial contribution goes 100% to families in need, providing food, medicine, and shelter.
+                </p>
+                <a href="contact.html" class="mt-6 inline-block btn-gold text-sm px-4 py-2">Donate Now</a>
+            </div>
+            
+            <div class="difference-card p-10 rounded-3xl hover-difference-lift reveal stagger-3">
+                <div class="w-20 h-20 bg-lebanon-green/20 border border-lebanon-green rounded-full flex items-center justify-center mx-auto mb-8">
+                    <i class="fas fa-box-open text-lebanon-green text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-display font-bold text-gold-400 mb-6 text-center">Contribute Supplies</h3>
+                <p class="text-gray-300 text-lg leading-relaxed text-center">
+                    Contribute school kits, food boxes, or hygiene supplies directly to our distribution centers.
+                </p>
+                <a href="contact.html" class="mt-6 inline-block btn-gold text-sm px-4 py-2">Provide Supplies</a>
+            </div>
+            
+            <div class="difference-card p-10 rounded-3xl hover-difference-lift reveal stagger-4">
+                <div class="w-20 h-20 bg-lebanon-green/20 border border-lebanon-green rounded-full flex items-center justify-center mx-auto mb-8">
+                    <i class="fas fa-users text-lebanon-green text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-display font-bold text-gold-400 mb-6 text-center">Volunteer for Campaigns</h3>
+                <p class="text-gray-300 text-lg leading-relaxed text-center">
+                    Join our cleanup and aid campaigns on the ground, making a direct impact in communities.
+                </p>
+                <a href="volunteer.html" class="mt-6 inline-block btn-gold text-sm px-4 py-2">Volunteer Today</a>
+            </div>
+
+            <div class="difference-card p-10 rounded-3xl hover-difference-lift reveal stagger-5">
+                <div class="w-20 h-20 bg-lebanon-green/20 border border-lebanon-green rounded-full flex items-center justify-center mx-auto mb-8">
+                    <i class="fas fa-share-alt text-lebanon-green text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-display font-bold text-gold-400 mb-6 text-center">Spread Awareness</h3>
+                <p class="text-gray-300 text-lg leading-relaxed text-center">
+                    Share HAQQ stories and posts with your network, especially to people in Lebanon and the diaspora.
+                </p>
+                <a href="https://wa.me/?text=Join%20HAQQ%20%28%D8%AD%D8%B1%D9%83%D8%A9%20%D8%AD%D9%8E%D9%82%D9%91%29%20in%20their%20mission%20to%20help%20Lebanese%20families%20in%20need.%20Learn%20more%20at%20[YourWebsiteLinkHere]" target="_blank" class="mt-6 inline-block btn-gold text-sm px-4 py-2">Share Our Story</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Why You Can Trust HAQQ -->
+    <section class="section-padding bg-navy-900">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-4xl md:text-6xl font-display font-black text-white mb-8 gold-text-shadow">
+                    Why You Can <span class="text-gradient-gold">Trust HAQQ</span>
+                </h2>
+                <p class="text-xl text-gold-200 max-w-3xl mx-auto">
+                    Our commitment to transparency, integrity, and direct impact.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <div class="trust-card p-8 rounded-3xl hover-trust-lift reveal stagger-1">
+                    <div class="w-16 h-16 bg-gold-500/20 border border-gold-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-dollar-sign text-gold-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-gold-400 mb-4 text-center">No Personal Gain</h3>
+                    <p class="text-gray-300 text-center">We don’t take money for ourselves. No salaries.</p>
+                </div>
+                
+                <div class="trust-card p-8 rounded-3xl hover-trust-lift reveal stagger-2">
+                    <div class="w-16 h-16 bg-lebanon-green/20 border border-lebanon-green rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-file-alt text-lebanon-green text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-gold-400 mb-4 text-center">Full Transparency</h3>
+                    <p class="text-gray-300 text-center">We don’t hide donations. Everything is documented and open.</p>
+                </div>
+                
+                <div class="trust-card p-8 rounded-3xl hover-trust-lift reveal stagger-3">
+                    <div class="w-16 h-16 bg-navy-500/20 border border-navy-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-users text-navy-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-gold-400 mb-4 text-center">Serve the People</h3>
+                    <p class="text-gray-300 text-center">We don’t work for anyone but the people of Lebanon.</p>
+                </div>
+
+                <div class="trust-card p-8 rounded-3xl hover-trust-lift reveal stagger-4">
+                    <div class="w-16 h-16 bg-red-500/20 border border-red-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-check-circle text-red-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-gold-400 mb-4 text-center">Real Movement</h3>
+                    <p class="text-gray-300 text-center">We’re not another fake movement. This is real.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Voice (Quote) -->
+    <section class="section-padding bg-navy-950">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center reveal">
+                <div class="relative mb-12 luxury-card p-16">
+                    <div class="quote-mark">"</div>
+                    <blockquote class="text-3xl md:text-4xl font-display italic mb-8 leading-relaxed max-w-4xl mx-auto relative z-10">
+                        "We’re not asking for power. We’re demanding what’s already ours: our land, our dignity, our peace, and our future."
+                    </blockquote>
+                    <cite class="text-xl text-gold-400 font-semibold">
+                        — ألكسندرو غانم
+                    </cite>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Join or Support -->
+    <section class="section-padding bg-navy-900">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center reveal">
+                <h2 class="text-4xl md:text-6xl font-display font-black text-white mb-8 gold-text-shadow">
+                    How to <span class="text-gradient-gold">Join or Support</span>
+                </h2>
+                <p class="text-xl text-gold-200 max-w-3xl mx-auto mb-12">
+                    Direct, transparent, and immediate communication.
+                </p>
+                
+                <div class="luxury-card p-12 max-w-3xl mx-auto">
+                    <i class="fab fa-whatsapp text-lebanon-green text-6xl mb-6"></i>
+                    <h3 class="text-3xl font-display font-bold text-gold-400 mb-6">Message us via WhatsApp only</h3>
+                    <p class="text-gray-300 text-xl leading-relaxed mb-8">
+                        No DMs. No delays. No forms. You’ll speak directly to someone from the HAQQ team.
+                    </p>
+                    <a href="https://wa.me/96170123456" class="btn-gold text-xl inline-flex items-center">
+                        <i class="fab fa-whatsapp mr-4"></i>
+                        Start a Chat
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Launching June 30, 2025 -->
+    <section class="section-padding launch-bg-gradient">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center reveal">
+            <h2 class="text-4xl md:text-6xl font-display font-black text-white mb-8 gold-text-shadow">
+                Launching <span class="text-gradient-gold">June 30, 2025</span>
+            </h2>
+            <p class="text-xl text-gold-200 max-w-3xl mx-auto">
+                That’s not just a date. That’s the beginning of something real.
+            </p>
+            <div class="inline-flex items-center px-8 py-4 text-lg sm:px-10 sm:py-5 sm:text-xl gold-border-rounded text-white font-bold mt-12 bg-gold-950/30">
+                <i class="fas fa-rocket mr-5 text-gold-400 text-2xl"></i>
+                <span>Mark Your Calendars!</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-950 text-white py-20">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-8">
+                        <a href="index.html" class="logo-container mr-6">
+                            <img src="logo7aq.png" alt="HAQQ Logo" class="w-20 h-20 object-contain logo-shadow" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIiByeD0iMTAiIGZpbGw9IiNkNGEwMTciLz4KPHRleHQgeD0iNDAiIHk9IjQ1IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjMDUwODIxIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0iY2VudHJhbCI+2K3ZgtmCPC90ZXh0Pgo8L2N2Zz4K'">
+                        </a>
+                        <div>
+                            <h3 class="text-3xl font-display font-bold">HAQQ</h3>
+                            <p class="text-gold-400 arabic-text text-lg font-semibold">حركة حَقّ</p>
+                        </div>
+                    </div>
+                    <p class="text-gold-200 text-xl leading-relaxed mb-8 font-display">
+                        We just want to help Lebanese people in need. This is our purpose for existence.
+                    </p>
+                    <p class="text-gold-300 arabic-text text-lg font-medium">
+                        نحن فقط نريد أن نساعد الناس المحتاجين
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-display font-bold mb-6 text-gold-400">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gold-200 hover:text-white transition-colors text-lg font-medium hover-gold">Home</a></li>
+                        <li><a href="help.html" class="text-gold-200 hover:text-white transition-colors text-lg font-medium hover-gold">How We Help</a></li>
+                        <li><a href="impact.html" class="text-gold-200 hover:text-white transition-colors text-lg font-medium hover-gold">Our Impact</a></li>
+                        <li><a href="volunteer.html" class="text-gold-200 hover:text-white transition-colors text-lg font-medium hover-gold">Volunteer</a></li>
+                        <li><a href="founder.html" class="text-gold-200 hover:text-white transition-colors text-lg font-medium hover-gold">Our Founder</a></li>
+                        <li><a href="contact.html" class="text-gold-200 hover:text-white transition-colors text-lg font-medium hover-gold">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-display font-bold mb-6 text-gold-400">Contact</h4>
+                    <div class="space-y-3">
+                        <p class="text-gold-200 text-lg">WhatsApp Only</p>
+                        <p class="text-gold-200 text-lg">Direct & Transparent</p>
+                        <p class="text-gold-200 text-lg">24/7 for Emergencies</p>
+                        <a href="https://wa.me/96170123456" class="inline-flex items-center text-gold-500 hover:text-gold-300 transition-colors mt-6 text-lg font-semibold hover-gold">
+                            <i class="fab fa-whatsapp mr-3 text-xl"></i>
+                            Message Us Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gold-600/30 pt-10 text-center">
+                <p class="text-gold-300 mb-3 text-lg">
+                    &copy; 2025 HAQQ. Founded by Alexandro Ghanem (ألكسندرو غانم)
+                </p>
+                <p class="text-gold-400 text-lg">
+                    <i class="fas fa-heart text-red-500 mr-3"></i>
+                    This is our purpose for existence
+                </p>
+            </div>
+        </div>
+    </footer>
+
+<script>
+    // Mobile menu functionality
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        const icon = mobileMenuBtn.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+    });
+
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            navbar.classList.add('glass-dark');
+            navbar.classList.add('shadow-2xl');
+        } else {
+            navbar.classList.remove('glass-dark');
+            navbar.classList.remove('shadow-2xl');
+        }
+    });
+
+    // Intersection observer for animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => {
+        observer.observe(el);
+    });
+
+    // Loading animation
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            document.querySelectorAll('.reveal').forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('active');
+                }, index * 100);
+            });
+        }, 300);
+    });
+</script>
+</body>
+</html>
